@@ -1,7 +1,11 @@
 #!/bin/sh
 
 #Get the latest updates
-cd /home/pi/remote
+if [ ! -d "/tmp/remote" ]; then
+  git clone https://github.com/albniss/remote.git /tmp/remote 2>&1
+fi
+
+cd /tmp/remote
 git pull 2>&1
 
 #Copy HTML
