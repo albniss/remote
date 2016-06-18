@@ -53,6 +53,16 @@ app.controller('remoteController', function($scope,$http,$q) {
 		$('#header').css("background-color","#428bca");
 	}
 
+	$scope.SamValidate = function() {
+		if ($("#ar2 #mode").val() == "AUTO") {
+			$("#ar2 #fan").val("AUTO");
+			$("#ar2 #fan").prop("disabled",true);
+		}
+		else {
+			$("#ar2 #fan").prop("disabled",false);
+		}
+	}
+
 	$scope.Samsung = function (status, port) {
 		var command;
 
@@ -176,14 +186,3 @@ app.controller('remoteController', function($scope,$http,$q) {
     	};
     };
 });
-
-function SamValidate() {
-	if ($("#ar2 #mode").val() == "AUTO") {
-		$("#ar2 #fan").val("AUTO");
-		$("#ar2 #fan").prop("disabled",true);
-	}
-	else {
-		$("#ar2 #fan").prop("disabled",false);
-	}
-
-}
