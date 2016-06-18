@@ -263,6 +263,8 @@
             </div>
           </div>
         </div>
+
+        <!-- Sala -->
         <div id="sala" class="tab-pane level1" style="background-color: #fff">
           <ul class="nav nav-pills">
             <li class="active"><a data-toggle="tab" href="#a2">Atividades</a></li>
@@ -419,24 +421,24 @@
                   </div>
                 </div>
                 <br/>
-                <div class="row" style="font-size:1.25em;">  
-                  <div class="col-xs-6">Fan</div>
+                <div class="row" style="font-size:1.25em;">
+                  <div class="col-xs-6">Mode</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="fan">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="AUTO">Auto</option>
+                    <select style="width:100%" id="mode" ng-change="SamValidate()">
+                      <option value="COOL">Cool</option>
+                      <option value="HEAT">Heat</option>
+                      <option value="AUTO" selected>Auto</option>
                     </select>
                   </div>
                 </div>
                 <br/>
-                <div class="row" style="font-size:1.25em;">
-                  <div class="col-xs-6">Mode</div>
+                <div class="row" style="font-size:1.25em;">  
+                  <div class="col-xs-6">Fan</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="mode">
-                      <option value="COOL">Cool</option>
-                      <option value="HEAT">Heat</option>
+                    <select style="width:100%" id="fan">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
                       <option value="AUTO" selected>Auto</option>
                     </select>
                   </div>

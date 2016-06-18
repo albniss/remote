@@ -176,3 +176,14 @@ app.controller('remoteController', function($scope,$http,$q) {
     	};
     };
 });
+
+function SamValidate() {
+	if ($("#ar2 #mode").val() == "AUTO") {
+		$("#ar2 #fan").val("AUTO");
+		$("#ar2 #fan").prop("disabled",true);
+	}
+	else {
+		$("#ar2 #fan").prop("disabled",false);
+	}
+
+}
