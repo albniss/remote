@@ -65,7 +65,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		else if (status=='COOL23')
 			command = "CMD_23_COOL_1_1_0";
 		else if (status=='CUSTOM')
-			command = "CMD_"+$("#ar2 #temp").val()+"_"+$("#ar2 #mode").val()+"_"+$("#ar2 #fan").val()+"_"+$("#ar2 #low_noise").val()++$("#ar2 #swing").val();
+			command = "CMD_"+$("#ar2 #temp").val()+"_"+$("#ar2 #mode").val()+"_"+$("#ar2 #fan").val()+"_"+$("#ar2 #low_noise").val()+$("#ar2 #swing").val();
 
 		console.log(command);
 
