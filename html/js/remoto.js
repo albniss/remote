@@ -2,12 +2,26 @@ var app = angular.module('remoteApp', []);
 
 app.controller('remoteController', function($scope,$http,$q) {
 
-	function doAjax(command) {
+	function doAjax(command, port) {
 		console.log("doajax:"+command);
 
 		var deferred = $q.defer();
+		
+		var url="";
+		if (window.location.hostname == "192.168.200.201" || window.location.hostname == "192.168.200.202") {
+			if      (port==1818) {
+				url = "http://192.168.200.201:1818";
+			}
+			else if (port==1819) {
+				url = "http://192.168.200.202:1819";
+			}
+		}
+		else {
+			url="http://"+window.location.hostname+":"+port;
+		}
 
-		var url="/cgi-bin/mandar.sh?remote="+command[0]+"&command="+command[1];
+		url+="/cgi-bin/mandar.sh?remote="+command[0]+"&command="+command[1];
+		
 		$http.get(url).then(
 			function (response) {
 				if (response.data.ok == 1) {
@@ -56,7 +70,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		console.log(command);
 
 		statusTX();
-		doAjax(["fujitsu",command])
+		doAjax(["fujitsu",command],port)
 		.then(
 		function() {
 			console.log("Sucesso final");
@@ -68,9 +82,9 @@ app.controller('remoteController', function($scope,$http,$q) {
 		});		
 	}
 
-	$scope.Optoma = function (command) {
+	$scope.Optoma = function (command, port) {
 		statusTX();
-		doAjax(["optoma",command])
+		doAjax(["optoma",command],port)
 		.then(
 		function() {
 			console.log("Sucesso final");
@@ -82,9 +96,9 @@ app.controller('remoteController', function($scope,$http,$q) {
 		});
 	}	
 
-	$scope.Net = function (command) {
+	$scope.Net = function (command, port) {
 		statusTX();
-		doAjax(["net",command])
+		doAjax(["net",command],port)
 		.then(
 		function() {
 			console.log("Sucesso final");
@@ -96,13 +110,13 @@ app.controller('remoteController', function($scope,$http,$q) {
 		});
 	}
 
-    $scope.Atividade = function(tipo) {
+    $scope.Atividade = function(tipo, port) {
     	switch (tipo){ 
     		case 'Net':
     			statusTX();
-    			doAjax(["optoma","KEY_POWER"])
-    			.then(function(){return doAjax(["net","KEY_POWER"])})
-				.then(function(){return doAjax(["optoma","KEY_2"])})
+    			doAjax(["optoma","KEY_POWER"],port)
+    			.then(function(){return doAjax(["net","KEY_POWER"],port)})
+				.then(function(){return doAjax(["optoma","KEY_2"],port)})
     			.then(
     			function() {
     				console.log("Sucesso final");
@@ -115,8 +129,8 @@ app.controller('remoteController', function($scope,$http,$q) {
 	        	break;
 	        case 'Chromecast':
 	            statusTX();
-    			doAjax(["optoma","KEY_POWER"])
-				.then(function(){return doAjax(["optoma","KEY_1"])})
+    			doAjax(["optoma","KEY_POWER"],port)
+				.then(function(){return doAjax(["optoma","KEY_1"],port)})
     			.then(
     			function() {
     				console.log("Sucesso final");
