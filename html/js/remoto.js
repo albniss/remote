@@ -53,7 +53,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		$('#header').css("background-color","#428bca");
 	}
 
-	$scope.Samsung = function (status) {
+	$scope.Samsung = function (status, port) {
 		var command;
 
 		if      (status=='ON')
@@ -82,7 +82,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		});		
 	}
 
-	$scope.Fujitsu = function (status) {
+	$scope.Fujitsu = function (status, port) {
 		var command;
 
 		if      (status=='ON')
