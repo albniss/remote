@@ -49,7 +49,6 @@
       });
     });
   </script>
-
 </head>
 
 <body>
@@ -269,6 +268,7 @@
             <li class="active"><a data-toggle="tab" href="#a2">Atividades</a></li>
             <li><a data-toggle="tab" href="#p2">Projetor</a></li>
             <li><a data-toggle="tab" href="#n2">Net</a></li>
+            <li><a data-toggle="tab" href="#ar2">Ar</a></li>
           </ul>
           <div class="tab-content">
             <!-- Atividades Gerais -->
@@ -386,6 +386,89 @@
                 </div>
               </div>
             </div>
+            <!-- Ar condicionado -->
+            <div id="ar2" class="tab-pane fade">
+              <div class="main">
+                <div class="row">
+                  <div class= "col-xs-6 col-sm-4 placeholder">
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" ng-click="Samsung('ON',1819)"></span>
+                  </div>  
+                  <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" ng-click="Samsung('OFF',1819)"></span>
+                  </div> 
+                </div> 
+                <br/>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="col-xs-6">Temperatura</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="temp">
+                      <option value="18">18C</option>
+                      <option value="19">19C</option>
+                      <option value="20">20C</option>
+                      <option value="21">21C</option>
+                      <option value="22">22C</option>
+                      <option value="23" selected>23C</option>
+                      <option value="24">24C</option>
+                      <option value="25">25C</option>
+                      <option value="26">26C</option>
+                      <option value="27">27C</option>
+                      <option value="28">28C</option>
+                      <option value="29">29C</option>
+                      <option value="30">30C</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;">  
+                  <div class="col-xs-6">Fan</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="fan">
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="AUTO">Auto</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;">
+                  <div class="col-xs-6">Mode</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="mode">
+                      <option value="COOL">Cool</option>
+                      <option value="HEAT">Heat</option>
+                      <option value="AUTO" selected>Auto</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="col-xs-6">Low  Noise</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="low_noise">
+                      <option value="1" selected>ON</option>
+                      <option value="0">OFF</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="col-xs-6">Swing<div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="swing">
+                      <option value="0" selected>OFF</option>
+                      <option value="1">ON</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="row-fluid"> 
+                    <div class="col-xs-4 col-xs-offset-4">
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" ng-click="Samsung('CUSTOM',1819)">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -394,7 +477,7 @@
 
   <!-- Static bottom navbar -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.4</p>
+    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.6</p>
   </nav>
 
 </body>

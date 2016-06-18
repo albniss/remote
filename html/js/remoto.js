@@ -53,11 +53,40 @@ app.controller('remoteController', function($scope,$http,$q) {
 		$('#header').css("background-color","#428bca");
 	}
 
+	$scope.Samsung = function (status) {
+		var command;
+
+		if      (status=='ON')
+			command = "CMD_"+$("#ar2 #temp").val()+"_"+$("#ar2 #mode").val()+"_"+$("#ar2 #fan").val()+"_"+$("#ar2 #low_noise").val()+$("#ar2 #swing").val();
+		else if (status=='OFF')
+			command = "CMD_OFF";
+		else if (status=='HEAT23')
+			command = "CMD_23_HEAT_1_1_0";
+		else if (status=='COOL23')
+			command = "CMD_23_COOL_1_1_0";
+		else if (status=='CUSTOM')
+			command = "CMD_"+$("#ar2 #temp").val()+"_"+$("#ar2 #mode").val()+"_"+$("#ar2 #fan").val()+"_"+$("#ar2 #low_noise").val()++$("#ar2 #swing").val();
+
+		console.log(command);
+
+		statusTX();
+		doAjax(["fujitsu",command],port)
+		.then(
+		function() {
+			console.log("Sucesso final");
+			statusNormal();
+		})
+		.catch(function () {
+			console.log("Erro final");
+			statusError();
+		});		
+	}
+
 	$scope.Fujitsu = function (status) {
 		var command;
 
 		if      (status=='ON')
-			command = "CMD_"+$("#temp").val()+"_"+$("#mode").val()+"_"+$("#fan").val()+"_"+$("#low_noise").val()+"_1";
+			command = "CMD_"+$("#ar #temp").val()+"_"+$("#ar #mode").val()+"_"+$("#ar #fan").val()+"_"+$("#ar #low_noise").val()+"_1";
 		else if (status=='OFF')
 			command = "CMD_OFF";
 		else if (status=='HEAT23')
@@ -65,7 +94,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		else if (status=='COOL23')
 			command = "CMD_23_COOL_1_1_1";
 		else if (status=='CUSTOM')
-			command = "CMD_"+$("#temp").val()+"_"+$("#mode").val()+"_"+$("#fan").val()+"_"+$("#low_noise").val()+"_0";
+			command = "CMD_"+$("#ar #temp").val()+"_"+$("#ar #mode").val()+"_"+$("#ar #fan").val()+"_"+$("#ar #low_noise").val()+"_0";
 
 		console.log(command);
 
