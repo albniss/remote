@@ -70,7 +70,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		console.log(command);
 
 		statusTX();
-		doAjax(["fujitsu",command],port)
+		doAjax(["samsung",command],port)
 		.then(
 		function() {
 			console.log("Sucesso final");
