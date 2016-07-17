@@ -14,4 +14,7 @@ cp -r html /var/www/ 2>&1
 #Copy LIRC configuration
 cp -r lirc/* /etc/lirc/ 2>&1
 
+#Copy lighttpd.conf
+cp lighttpd/lighttpd.conf /etc/lighttpd/  2>&1
+
 echo "OK"

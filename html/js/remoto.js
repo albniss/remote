@@ -2,6 +2,45 @@ var app = angular.module('remoteApp', []);
 
 app.controller('remoteController', function($scope,$http,$q) {
 
+	function doAjaxYamaha(payload, port) {
+		console.log("doajaxYamaha:"+command);
+
+		var deferred = $q.defer();
+		
+		var url="";
+		if (window.location.hostname == "192.168.200.201" || window.location.hostname == "192.168.200.202") {
+			if      (port==1818) {
+				url = "http://192.168.200.201:1818";
+			}
+			else if (port==1819) {
+				url = "http://192.168.200.202:1819";
+			}
+		}
+		else {
+			url="http://"+window.location.hostname+":"+port;
+		}
+
+		url+="/cgi-bin/yamaha.sh?payload="+payload;
+		
+		$http.get(url).then(
+			function (response) {
+				if (response.data.ok == 1) {
+					console.log("doajax: OK: "+command);
+					deferred.resolve("OK");
+				}
+				else {
+					console.log("Internal error!");
+					deferred.reject("Internal error!")
+				}
+			},
+			function () {
+				console.log("Connection error!");
+				deferred.reject("Connection error!")
+			});
+
+		return deferred.promise;
+	}
+
 	function doAjax(command, port) {
 		console.log("doajax:"+command);
 
@@ -51,6 +90,35 @@ app.controller('remoteController', function($scope,$http,$q) {
 
 	function statusNormal () {
 		$('#header').css("background-color","#428bca");
+	}
+
+	$scope.Yamaha = function (status,port) {
+		switch (status) {
+			case "ON":
+				break;
+			case "OFF":
+				break;
+			case "VOLUP":
+				break;
+			case "VOLDN":
+				break;
+			case "NETRADIO":
+				break;
+			case "TUNER":
+				break;
+			case "AIRPLAY":
+				break;
+			case "HDMI1":
+				break;
+			case "HDMI2":
+				break;
+			case "HDMI3":
+				break;
+			case "HDMI4":
+				break;
+		}
+
+		doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>Up</Val><Exp></Exp><Unit></Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>',1818);
 	}
 
 	$scope.Samsung = function (status, port) {
