@@ -3,7 +3,7 @@ var app = angular.module('remoteApp', []);
 app.controller('remoteController', function($scope,$http,$q) {
 
 	function doAjaxYamaha(payload, port) {
-		console.log("doajaxYamaha:"+command);
+		console.log("doajaxYamaha:"+payload);
 
 		var deferred = $q.defer();
 		
@@ -25,7 +25,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 		$http.get(url).then(
 			function (response) {
 				if (response.data.ok == 1) {
-					console.log("doajax: OK: "+command);
+					console.log("doAjaxYamaha: OK");
 					deferred.resolve("OK");
 				}
 				else {
