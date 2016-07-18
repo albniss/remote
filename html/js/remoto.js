@@ -2,12 +2,14 @@ var app = angular.module('remoteApp', []);
 
 app.controller('remoteController', function($scope,$http,$q) {
 
-	function doAjaxYamaha(payload, port) {
+	function doAjaxYamaha(payload) {
 		console.log("doajaxYamaha:"+payload);
 
 		var deferred = $q.defer();
 		
 		var url="";
+
+		port = window.location.port;
 		if (window.location.hostname == "192.168.200.201" || window.location.hostname == "192.168.200.202") {
 			if      (port==1818) {
 				url = "http://192.168.200.201:1818";
@@ -20,7 +22,7 @@ app.controller('remoteController', function($scope,$http,$q) {
 			url="http://"+window.location.hostname+":"+port;
 		}
 
-		url+="/cgi-bin/yamaha.sh?payload="+payload;
+		url+="/cgi-bin/yamaha.py?payload="+payload;
 		
 		$http.get(url).then(
 			function (response) {
@@ -92,15 +94,17 @@ app.controller('remoteController', function($scope,$http,$q) {
 		$('#header').css("background-color","#428bca");
 	}
 
-	$scope.Yamaha = function (status,port) {
-		switch (status) {
+	$scope.Yamaha = function (command) {
+		switch (command) {
 			case "ON":
 				break;
 			case "OFF":
 				break;
 			case "VOLUP":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>Up</Val><Exp></Exp><Unit></Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
 				break;
 			case "VOLDN":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>Down</Val><Exp></Exp><Unit></Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
 				break;
 			case "NETRADIO":
 				break;
@@ -117,8 +121,6 @@ app.controller('remoteController', function($scope,$http,$q) {
 			case "HDMI4":
 				break;
 		}
-
-		doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>Up</Val><Exp></Exp><Unit></Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>',1818);
 	}
 
 	$scope.Samsung = function (status, port) {

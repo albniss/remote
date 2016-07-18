@@ -10,4 +10,6 @@ payload=form.getvalue('payload')
 
 requests.post(url,payload)
 
-print "Hey!"
+print 'Content-type: application/json'
+print ''
+print '{"ok":1}'
