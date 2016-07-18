@@ -95,10 +95,14 @@ app.controller('remoteController', function($scope,$http,$q) {
 	}
 
 	$scope.Yamaha = function (command) {
+		console.log(command);
+
 		switch (command) {
 			case "ON":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><System><Power_Control><Power>On</Power></Power_Control></System></YAMAHA_AV>');
 				break;
 			case "OFF":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><System><Power_Control><Power>Standby</Power></Power_Control></System></YAMAHA_AV>');
 				break;
 			case "VOLUP":
 				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>Up</Val><Exp></Exp><Unit></Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
@@ -107,18 +111,25 @@ app.controller('remoteController', function($scope,$http,$q) {
 				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>Down</Val><Exp></Exp><Unit></Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
 				break;
 			case "NETRADIO":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>NET RADIO</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 			case "TUNER":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>TUNER</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 			case "AIRPLAY":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>AirPlay</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 			case "HDMI1":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>HDMI1</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 			case "HDMI2":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>HDMI2</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 			case "HDMI3":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>HDMI3</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 			case "HDMI4":
+				doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Input><Input_Sel>HDMI4</Input_Sel></Input></Main_Zone></YAMAHA_AV>');
 				break;
 		}
 	}
@@ -245,6 +256,32 @@ app.controller('remoteController', function($scope,$http,$q) {
 	        	alert("Invalid activity!");
     	};
     };
+
+    console.log("Init");
+
+	$(".knob").knob({
+		'release' : function (v) {
+			console.log("release!");
+			//Volume information
+			//0-100 on the knob equals -80db to 0db (-800 to 000)
+			var db = 10 * parseInt($("#vol_knob").val());
+			doAjaxYamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>'+db+'</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
+    	}
+    });
+
+	var app = document.getElementById("app");
+
+	Hammer(app).on("swiperight", function() {
+	var $tab = $('.level1.active .nav-pills .active').prev();
+	if ($tab.length > 0)
+	  $tab.find('a').tab('show');
+	});
+
+	Hammer(app).on("swipeleft", function() {
+	var $tab = $('.level1.active .nav-pills .active').next();
+	if ($tab.length > 0)
+	  $tab.find('a').tab('show');
+	});
 });
 
 function SamValidate() {
