@@ -1,0 +1,24 @@
+{
+  "name": "remote_nodejs",
+  "description": "Remote control application for home automation",
+  "main": "index.js",
+  "authors": [
+    "Albert Nissimoff"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/albniss/remote",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0",
+    "jquery-knob": "^1.2.13",
+    "hammerjs": "^2.0.8"
+  }
+}
