@@ -70,11 +70,14 @@ function Fujitsu(onoff,temp,fan,mode,lownoise,room) {
 	var command;
 	
 	if ("ON" == onoff) {
-		command="CMD_"+temp+"_"+mode+"_"+fan+"_"+lownoise+"_0";
+		command="CMD_"+temp+"_"+mode+"_"+fan+"_"+lownoise+"_1";
+	}
+	else if ("OFF" == onoff {
+		command="CMD_OFF";
 	}
 	else {
-		command="CMD_OFF";
-	}				
+		command="CMD_"+temp+"_"+mode+"_"+fan+"_"+lownoise+"_0";
+	}
 	IRTX("fujitsu",command,room);
 }
 
