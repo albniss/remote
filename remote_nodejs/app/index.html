@@ -254,19 +254,19 @@
             <div id="a2" class="tab-pane fade in active">
               <div class="main">
                 <div class="row placeholders">
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Optoma('KEY_POWER',1819)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("optoma","KEY_POWER","living").then(Yamaha("ON"))'>
                     <img src="images/tv.png" class="img-responsive" alt="Projetor">
                     <h4 style="text-align:center">Projetor</h4>
                   </div>
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Samsung('OFF',1819)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='Samsung("OFF",23,1,"COOL",1,0,"living")'>
                     <img src="images/off.png" class="img-responsive" alt="Desligar Ar">
                     <h4 style="text-align:center">Desligar Ar</h4>
                   </div>
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Samsung('COOL23',1819)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='Samsung("ON",23,1,"COOL",1,0,"living")'>
                     <img src="images/snow-xxl.png" class="img-responsive" alt="Esfriar">
                     <h4 style="text-align:center">Esfriar 23C</h4>
                   </div>
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Samsung('HEAT23',1819)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='Samsung("ON",23,1,"HEAT",1,0,"living")'>
                     <img src="images/campfire2.png" class="img-responsive" alt="Esquentar">
                     <h4 style="text-align:center">Esquentar 23C</h4>
                   </div>
