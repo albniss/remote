@@ -72,7 +72,7 @@ function Fujitsu(onoff,temp,fan,mode,lownoise,room) {
 	if ("ON" == onoff) {
 		command="CMD_"+temp+"_"+mode+"_"+fan+"_"+lownoise+"_1";
 	}
-	else if ("OFF" == onoff {
+	else if ("OFF" == onoff) {
 		command="CMD_OFF";
 	}
 	else {
