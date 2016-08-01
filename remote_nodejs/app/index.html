@@ -48,19 +48,19 @@
             <div id="atividades" class="tab-pane fade in active">
               <div class="main">
                 <div class="row placeholders">
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Optoma('KEY_POWER',1818)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("optoma","KEY_POWER","bedroom")'">
                     <img src="images/tv.png" class="img-responsive" alt="Projetor">
                     <h4 style="text-align:center">Projetor</h4>
                   </div>
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Fujitsu('OFF',1818)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("fujitsu","CMD_OFF","bedroom")'>
                     <img src="images/off.png" class="img-responsive" alt="Desligar Ar">
                     <h4 style="text-align:center">Desligar Ar</h4>
                   </div>
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Fujitsu('COOL23',1818)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("fujitsu","CMD_23_COOL_1_1_1","bedroom")'>
                     <img src="images/snow-xxl.png" class="img-responsive" alt="Esfriar">
                     <h4 style="text-align:center">Esfriar 23C</h4>
                   </div>
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Fujitsu('HEAT23',1818)">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("fujitsu","CMD_23_HEAT_1_1_1","bedroom")'>
                     <img src="images/campfire2.png" class="img-responsive" alt="Esquentar">
                     <h4 style="text-align:center">Esquentar 23C</h4>
                   </div>
@@ -72,28 +72,28 @@
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" ng-click="Optoma('KEY_POWER',1818)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='IRTX("optoma","KEY_POWER","bedroom")'></span>
                   </div>
                   <div class="col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" ng-click="Optoma('KEY_0',1818)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='IRTX("optoma","KEY_0","bedroom")'></span>
                   </div>
                 </div>
                 <br/>
                 <div class="row">
                   <div style="display:flex;justify-content:center;flex-flow:row wrap;align-items:center">
-                    <span class="glyphicon glyphicon-arrow-up" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" ng-click="Optoma('KEY_VOLUMEUP',1818)"></span> 
-                    <span class="glyphicon glyphicon-arrow-left" style="font-size: 4em; color: #337ab7" ng-click="Optoma('KEY_LEFT',1818)"></span>    
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" ng-click="Optoma('KEY_OK',1818)">OK</button>
-                    <span class="glyphicon glyphicon-arrow-right" style="font-size: 4em; color: #337ab7" ng-click="Optoma('KEY_RIGHT',1818)"></span>
-                    <span class="glyphicon glyphicon-arrow-down" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" ng-click="Optoma('KEY_VOLUMEDOWN',1818)"></span>
+                    <span class="glyphicon glyphicon-arrow-up" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEUP","bedroom")'></span> 
+                    <span class="glyphicon glyphicon-arrow-left" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_LEFT","bedroom")'></span>    
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("optoma","KEY_OK","bedroom")'">OK</button>
+                    <span class="glyphicon glyphicon-arrow-right" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_RIGHT","bedroom")'></span>
+                    <span class="glyphicon glyphicon-arrow-down" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEDOWN","bedroom")'></span>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-volume-down" style="font-size: 4em;color: #337ab7;text-align:center;display:block" ng-click="Optoma('KEY_VOLUMEDOWN',1818)"></span>
+                    <span class="glyphicon glyphicon-volume-down" style="font-size: 4em;color: #337ab7;text-align:center;display:block" onclick='IRTX("optoma","KEY_VOLUMEDOWN","bedroom")'></span>
                   </div>
                   <div class="col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-volume-up"   style="font-size: 4em;color: #337ab7;text-align:center;display:block" ng-click="Optoma('KEY_VOLUMEUP',1818)"></span>
+                    <span class="glyphicon glyphicon-volume-up"   style="font-size: 4em;color: #337ab7;text-align:center;display:block" onclick='IRTX("optoma","KEY_VOLUMEUP","bedroom")'></span>
                   </div>
                 </div>
                 <br/>
@@ -109,54 +109,54 @@
               <div class="main">
                 <div class="row text-center">
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #337ab7" ng-click="Net('KEY_POWER',1818)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #337ab7" onclick='IRTX("net","KEY_POWER","bedroom")'></span>
                   </div>
                   <div class="col-xs-6">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_GREEN',1818)">Idioma</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_GREEN","bedroom")'>Idioma</button>
                   </div>
                 </div>
                 <br/>       
                 <div class="row text-center">
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-volume-up" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_VOLUMEUP',1818)"></span>
+                    <span class="glyphicon glyphicon-volume-up" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_VOLUMEUP","bedroom")'></span>
                   </div>
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-triangle-top" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_CHANNELUP',1818)"></span>
+                    <span class="glyphicon glyphicon-triangle-top" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_CHANNELUP","bedroom")'></span>
                   </div>
                 </div>
                 <div class="row text-center">
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-volume-down" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_VOLUMEDOWN',1818)"></span>
+                    <span class="glyphicon glyphicon-volume-down" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_VOLUMEDOWN","bedroom")'></span>
                   </div>
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-triangle-bottom" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_CHANNELDOWN',1818)"></span>
+                    <span class="glyphicon glyphicon-triangle-bottom" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_CHANNELDOWN","bedroom")'></span>
                   </div>
                 </div>
                 <br/>
                 <div class="row text-center" style="margin-bottom:0.5em;font-size: 2em;">
                   <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_1',1818)">1</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" ng-click="Net('KEY_2',1818)">2</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_3',1818)">3</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_1","bedroom")'>1</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("net","KEY_2","bedroom")'>2</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_3","bedroom")'>3</button>
                   </div>
                 </div>
                 <div class="row text-center" style="margin-bottom:0.5em;font-size: 2em;">
                   <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_4',1818)">4</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-left:1em; margin-right:1em" ng-click="Net('KEY_5',1818)">5</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_6',1818)">6</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_4","bedroom")'>4</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-left:1em; margin-right:1em" onclick='IRTX("net","KEY_5","bedroom")'>5</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_6","bedroom")'>6</button>
                   </div>
                 </div>
                 <div class="row text-center" style="margin-bottom:0.5em;font-size: 2em;">
                   <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_7',1818)">7</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click="Net('KEY_8',1818)">8</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_9',1818)">9</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_7","bedroom")'>7</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick='IRTX("net","KEY_8","bedroom")'>8</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_9","bedroom")'>9</button>
                   </div>
                 </div>
                 <div class="row text-center" style="font-size: 2em;">
                   <div class="col-xs-4 col-xs-offset-4">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_0',1818)">0</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_0","bedroom")'>0</button>
                   </div>
                 </div>
               </div>
@@ -166,10 +166,10 @@
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" ng-click="Fujitsu('ON',1818)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Fujitsu("ON",$("#ar #temp").val(),$("#ar #fan").val(),$("#ar #mode").val(),$("#ar #low_noise").val(),"bedroom")'></span>
                   </div>  
                   <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" ng-click="Fujitsu('OFF',1818)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Fujitsu("OFF",$("#ar #temp").val(),$("#ar #fan").val(),$("#ar #mode").val(),$("#ar #low_noise").val(),"bedroom")'></span>
                   </div> 
                 </div> 
                 <br/>
@@ -231,7 +231,7 @@
                   <br/>
                   <div class="row-fluid"> 
                     <div class="col-xs-4 col-xs-offset-4">
-                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" ng-click="Fujitsu('CUSTOM',1818)">OK</button>
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Fujitsu("ON",$("#ar #temp").val(),$("#ar #fan").val(),$("#ar #mode").val(),$("#ar #low_noise").val(),"bedroom")'>OK</button>
                     </div>
                   </div>
                 </div>
@@ -239,7 +239,6 @@
             </div>
           </div>
         </div>
-
         <!-- Sala -->
         <div id="sala" class="tab-pane level1" style="background-color: #fff">
           <ul class="nav nav-pills">
@@ -279,33 +278,35 @@
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" ng-click="Optoma('KEY_POWER',1819)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='IRTX("optoma","KEY_POWER","living")'></span>
                   </div>
                   <div class="col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" ng-click="Optoma('KEY_0',1819)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='IRTX("optoma","KEY_0","living")'></span>
                   </div>
                 </div>
                 <br/>
                 <div class="row">
                   <div style="display:flex;justify-content:center;flex-flow:row wrap;align-items:center">
-                    <span class="glyphicon glyphicon-arrow-up" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" ng-click="Optoma('KEY_VOLUMEUP',1819)"></span> 
-                    <span class="glyphicon glyphicon-arrow-left" style="font-size: 4em; color: #337ab7" ng-click="Optoma('KEY_LEFT',1819)"></span>    
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" ng-click="Optoma('KEY_OK',1819)">OK</button>
-                    <span class="glyphicon glyphicon-arrow-right" style="font-size: 4em; color: #337ab7" ng-click="Optoma('KEY_RIGHT',1819)"></span>
-                    <span class="glyphicon glyphicon-arrow-down" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" ng-click="Optoma('KEY_VOLUMEDOWN',1819)"></span>
+                    <span class="glyphicon glyphicon-arrow-up" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEUP","living")'></span> 
+                    <span class="glyphicon glyphicon-arrow-left" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_LEFT","living")'></span>    
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("optoma","KEY_OK","living")'">OK</button>
+                    <span class="glyphicon glyphicon-arrow-right" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_RIGHT","living")'></span>
+                    <span class="glyphicon glyphicon-arrow-down" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEDOWN","living")'></span>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-volume-down" style="font-size: 4em;color: #337ab7;text-align:center;display:block" ng-click="Optoma('KEY_VOLUMEDOWN',1819)"></span>
+                    <span class="glyphicon glyphicon-volume-down" style="font-size: 4em;color: #337ab7;text-align:center;display:block" onclick='IRTX("optoma","KEY_VOLUMEDOWN","living")'></span>
                   </div>
                   <div class="col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-volume-up"   style="font-size: 4em;color: #337ab7;text-align:center;display:block" ng-click="Optoma('KEY_VOLUMEUP',1819)"></span>
+                    <span class="glyphicon glyphicon-volume-up"   style="font-size: 4em;color: #337ab7;text-align:center;display:block" onclick='IRTX("optoma","KEY_VOLUMEUP","living")'></span>
                   </div>
                 </div>
                 <br/>
                 <div class="row text-center">
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_MENU',1819)">Menu</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_MENU',1818)">Menu</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click="Optoma('KEY_1',1818)">Chromecast</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_2',1818)">Net</button>
                 </div>
               </div>
             </div>
@@ -314,54 +315,54 @@
               <div class="main">
                 <div class="row text-center">
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #337ab7" ng-click="Net('KEY_POWER',1819)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #337ab7" onclick='IRTX("net","KEY_POWER","living")'></span>
                   </div>
                   <div class="col-xs-6">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_GREEN',1819)">Idioma</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_GREEN","living")'>Idioma</button>
                   </div>
                 </div>
                 <br/>       
                 <div class="row text-center">
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-volume-up" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_VOLUMEUP',1819)"></span>
+                    <span class="glyphicon glyphicon-volume-up" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_VOLUMEUP","living")'></span>
                   </div>
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-triangle-top" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_CHANNELUP',1819)"></span>
+                    <span class="glyphicon glyphicon-triangle-top" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_CHANNELUP","living")'></span>
                   </div>
                 </div>
                 <div class="row text-center">
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-volume-down" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_VOLUMEDOWN',1819)"></span>
+                    <span class="glyphicon glyphicon-volume-down" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_VOLUMEDOWN","living")'></span>
                   </div>
                   <div class="col-xs-6">
-                    <span class="glyphicon glyphicon-triangle-bottom" style="font-size: 3.5em;color: #337ab7" ng-click="Net('KEY_CHANNELDOWN',1819)"></span>
+                    <span class="glyphicon glyphicon-triangle-bottom" style="font-size: 3.5em;color: #337ab7" onclick='IRTX("net","KEY_CHANNELDOWN","living")'></span>
                   </div>
                 </div>
                 <br/>
                 <div class="row text-center" style="margin-bottom:0.5em;font-size: 2em;">
                   <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_1',1819)">1</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" ng-click="Net('KEY_2',1819)">2</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_3',1819)">3</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_1","living")'>1</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("net","KEY_2","living")'>2</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_3","living")'>3</button>
                   </div>
                 </div>
                 <div class="row text-center" style="margin-bottom:0.5em;font-size: 2em;">
                   <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_4',1819)">4</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-left:1em; margin-right:1em" ng-click="Net('KEY_5',1819)">5</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_6',1819)">6</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_4","living")'>4</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-left:1em; margin-right:1em" onclick='IRTX("net","KEY_5","living")'>5</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_6","living")'>6</button>
                   </div>
                 </div>
                 <div class="row text-center" style="margin-bottom:0.5em;font-size: 2em;">
                   <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_7',1819)">7</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click="Net('KEY_8',1819)">8</button>
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_9',1819)">9</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_7","living")'>7</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick='IRTX("net","KEY_8","living")'>8</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_9","living")'>9</button>
                   </div>
                 </div>
                 <div class="row text-center" style="font-size: 2em;">
                   <div class="col-xs-4 col-xs-offset-4">
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Net('KEY_0',1819)">0</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("net","KEY_0","living")'>0</button>
                   </div>
                 </div>
               </div>
@@ -371,10 +372,10 @@
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" ng-click="Samsung('ON',1819)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Samsung("ON",$("#ar2 #temp").val(),$("#ar2 #fan").val(),$("#ar2 #mode").val(),$("#ar2 #low_noise").val(),$("#ar2 #swing").val(),"living")'></span>
                   </div>  
                   <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" ng-click="Samsung('OFF',1819)"></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Samsung("OFF",$("#ar2 #temp").val(),$("#ar2 #fan").val(),$("#ar2 #mode").val(),$("#ar2 #low_noise").val(),$("#ar2 #swing").val(),"living")'></span>
                   </div> 
                 </div> 
                 <br/>
@@ -445,7 +446,7 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="row-fluid"> 
                     <div class="col-xs-4 col-xs-offset-4">
-                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" ng-click="Samsung('CUSTOM',1819)">OK</button>
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Samsung("ON",$("#ar2 #temp").val(),$("#ar2 #fan").val(),$("#ar2 #mode").val(),$("#ar2 #low_noise").val(),$("#ar2 #swing").val(),"living")'>OK</button>
                     </div>
                   </div>
                 </div>
@@ -456,27 +457,27 @@
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" ng-click='Yamaha("ON")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Yamaha("ON")'></span>
                   </div>
                   <div class="col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" ng-click='Yamaha("OFF")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Yamaha("OFF")'></span>
                   </div>
                 </div>
                 <br/>
                 <div class="row" style="text-align: center">
-                  <input type="text" class="knob" id="vol_knob" data-min=-80 data-max=0 data-width=175 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="-40" ng-model="vol">
+                  <input type="text" class="knob" id="vol_knob" data-min=-80 data-max=0 data-width=175 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="-40">
                 </div>
                 <div class="row text-center">
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click='Yamaha("HDMI1")'>Net</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click='Yamaha("HDMI2")'>Chromecast</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" ng-click='Yamaha("HDMI3")'>PI</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" ng-click='Yamaha("HDMI4")'>PC</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='Yamaha("HDMI1")'>Net</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick='Yamaha("HDMI2")'>Chromecast</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" onclick='Yamaha("HDMI3")'>PI</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" onclick='Yamaha("HDMI4")'>PC</button>
                 </div>
                 <br/>
                 <div class="row text-center">
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click='Yamaha("TUNER")'>Tuner</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click='Yamaha("NETRADIO")'>Net radio</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click='Yamaha("AIRPLAY")'>Airplay</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='Yamaha("TUNER")'>Tuner</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick='Yamaha("NETRADIO")'>Net radio</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='Yamaha("AIRPLAY")'>Airplay</button>
                 </div>
               </div>
             </div>
@@ -499,7 +500,7 @@
 
   <!-- Static bottom navbar -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.6</p>
+    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.7</p>
   </nav>
 
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>

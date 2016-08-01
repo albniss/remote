@@ -1,5 +1,4 @@
 // index.js
-var port=10001;
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -34,7 +33,7 @@ app.get('/Yamaha', function (req, res) {
 		host: '192.168.200.250',
 		port: '80',
 		path: '/YamahaRemoteControl/ctrl',
-		method: 'GET'
+		method: 'POST'
 	};
 	var yamaha_req = http.request(options, function(yamaha_res) {
 		console.log('Yamaha payload sent! Status code: '+yamaha_res.statusCode);
@@ -47,6 +46,7 @@ app.get('/Yamaha', function (req, res) {
 	yamaha_req.end();
 });
 
+var port=process.argv[2];
 http.listen(port, function() {
 	console.log('Server listening on port '+port);
 });
