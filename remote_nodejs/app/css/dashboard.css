@@ -1,5 +1,12 @@
 body { 
-  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.innertab {
+	position:absolute;
+	top:90px;
+	bottom:30px;
+	width:100%;
 }
 
 .navbar {

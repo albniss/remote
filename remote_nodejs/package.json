@@ -4,10 +4,10 @@
   "description": "Remote control application for home automation",
   "main": "index.js",
   "dependencies": {
+    "bower-npm-resolver": "^0.4.0",
     "express": "^4.14.0",
     "socket.io": "^1.4.8"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"

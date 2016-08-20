@@ -31,12 +31,13 @@
   <div class="container-fluid">
     <div class="row">
       <ul id="header" class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#quarto">Quarto</a></li>
-        <li><a data-toggle="tab" href="#sala">Sala</a></li>
+        <li class="active"><a data-toggle="tab" href="#bedroom">Bedroom</a></li>
+        <li><a data-toggle="tab" href="#living">Living</a></li>
+		<li><a data-toggle="tab" href="#weather">Weather</a></li>
       </ul>
-
       <div id="app" class="tab-content">
-        <div id="quarto" class="active tab-pane level1" style="background-color: #fff">
+		<!-- Bedroom -->
+        <div id="bedroom" class="active tab-pane level1" style="background-color: #fff">
           <ul class="nav nav-pills">
             <li class="active"><a data-toggle="tab" href="#atividades">Ativ</a></li>
             <li><a data-toggle="tab" href="#projetor">Proj</a></li>
@@ -45,7 +46,7 @@
           </ul>
           <div class="tab-content">
             <!-- Atividades Gerais -->
-            <div id="atividades" class="tab-pane fade in active">
+            <div id="atividades" class="tab-pane fade in active albert">
               <div class="main">
                 <div class="row placeholders">
                   <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("optoma","KEY_POWER","bedroom")'">
@@ -68,7 +69,7 @@
               </div>
             </div>
             <!-- Projetor -->
-            <div id="projetor" class="tab-pane fade">
+            <div id="projetor" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
@@ -105,7 +106,7 @@
               </div>
             </div>
             <!-- Net -->
-            <div id="net" class="tab-pane fade">
+            <div id="net" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row text-center">
                   <div class="col-xs-6">
@@ -162,7 +163,7 @@
               </div>
             </div>
             <!-- Ar condicionado -->
-            <div id="ar" class="tab-pane fade">
+            <div id="ar" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
@@ -239,8 +240,8 @@
             </div>
           </div>
         </div>
-        <!-- Sala -->
-        <div id="sala" class="tab-pane level1" style="background-color: #fff">
+        <!-- Living -->
+        <div id="living" class="tab-pane level1" style="background-color: #fff">
           <ul class="nav nav-pills">
             <li class="active"><a data-toggle="tab" href="#a2">Ativ</a></li>
             <li><a data-toggle="tab" href="#p2">Proj</a></li>
@@ -251,7 +252,7 @@
           </ul>
           <div class="tab-content">
             <!-- Atividades Gerais -->
-            <div id="a2" class="tab-pane fade in active">
+            <div id="a2" class="tab-pane fade in active innertab">
               <div class="main">
                 <div class="row placeholders">
                   <div class="col-xs-6 col-sm-3 placeholder" onclick='_IRTX("optoma","KEY_POWER","living").then(Yamaha("ON"))'>
@@ -274,7 +275,7 @@
               </div>
             </div>
             <!-- Projetor -->
-            <div id="p2" class="tab-pane fade">
+            <div id="p2" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
@@ -311,7 +312,7 @@
               </div>
             </div>
             <!-- Net -->
-            <div id="n2" class="tab-pane fade">
+            <div id="n2" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row text-center">
                   <div class="col-xs-6">
@@ -368,7 +369,7 @@
               </div>
             </div>
             <!-- Ar condicionado -->
-            <div id="ar2" class="tab-pane fade">
+            <div id="ar2" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
@@ -453,7 +454,7 @@
               </div>
             </div>
             <!-- Yamaha -->
-            <div id="yamaha" class="tab-pane fade">
+            <div id="yamaha" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
@@ -482,7 +483,7 @@
               </div>
             </div>
             <!-- Kodi -->
-            <div id="kodi" class="tab-pane fade">
+            <div id="kodi" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row placeholders">
                   <div class="col-xs-6 col-sm-3 placeholder" ng-click="Yamaha(0,0)">
@@ -494,7 +495,28 @@
             </div>
           </div>
         </div>
-      </div>
+		<!-- Weather -->
+        <div id="weather" class="tab-pane level1" style="background-color: #fff">
+          <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="tab" href="#wxbedroom">Bedroom</a></li>
+            <li><a data-toggle="tab" href="#wxliving">Living</a></li>
+          </ul>
+          <div class="tab-content">
+            <!-- Weather Bedroom -->
+            <div id="wxbedroom" class="tab-pane fade in active innertab">
+				<div style="width:100%;height:100%">
+					<canvas id="myChart"></canvas>
+				</div>
+				<!-- style="position:absolute;top:100px !important;bottom:40px !important;width:100%" -->
+            </div>
+            <!-- Weather Living -->
+            <div id="wxliving" class="tab-pane fade innertab">
+              <div class="main">
+              </div>
+            </div>
+          </div>
+        </div>
+	  </div>
     </div>
   </div>
 
@@ -503,10 +525,11 @@
     <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.7</p>
   </nav>
 
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-  <script src="../bower_components/hammerjs/hammer.min.js"></script>
-  <script src="js/node_remote.js"></script>
+  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+  <script type="text/javascript" src="../bower_components/hammerjs/hammer.min.js"></script>
+  <script type="text/javascript" src="../bower_components/chart.js/dist/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="js/node_remote.js"></script>
 </body>
 </html>
