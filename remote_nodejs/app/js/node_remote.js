@@ -246,7 +246,7 @@ function SamValidate() {
 }
 
 function heatMapColorforValue(value){
-  var h = (1.0 - value) * 240
+  var h = Math.floor((1.0 - value) * 240);
   return "hsl(" + h + ", 100%, 50%)";
 }
 
@@ -273,8 +273,9 @@ function GetWeather() {
 				
 				console.log(deltah);
 				
-				if (deltah <= 1)
-					colors.push(heatMapColorforValue((deltah)));
+				//We only want data that is at most 1-day old
+				if (deltah <= 24)
+					colors.push(heatMapColorforValue((deltah/24)));
 			}
 			scatterChart.data.datasets[0].data = data;
 			scatterChart.data.datasets[0].pointBackgroundColor = colors;
