@@ -1,3 +1,71 @@
+console.log("Init");
+
+$(".knob").knob({
+	'release' : function (v) {
+		console.log("release!");
+		//Volume information
+		//0-100 on the knob equals -80db to 0db (-800 to 000)
+		var db = 10 * parseInt($("#vol_knob").val());
+		Yamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>'+db+'</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
+	}
+});
+
+var app = document.getElementById("app");
+
+Hammer(app).on("swiperight", function() {
+var $tab = $('.level1.active .nav-pills .active').prev();
+if ($tab.length > 0)
+  $tab.find('a').tab('show');
+});
+
+Hammer(app).on("swipeleft", function() {
+var $tab = $('.level1.active .nav-pills .active').next();
+if ($tab.length > 0)
+  $tab.find('a').tab('show');
+});
+
+var ctx = document.getElementById("myChart").getContext("2d");
+var scatterChart = new Chart(ctx, {
+	type: 'line',
+	data: {
+		datasets: [{
+			label: 'Scatter Dataset',
+			showLine: false,
+			data: []
+		},
+		{
+			label: 'Zona de Conforto',
+			borderColor: "rgba(0,0,0,0)",
+			backgroundColor: "rgba(0,255,0,0.2)",
+			pointBorderColor: "rgba(0,0,0,0)",
+			pointBackgroundColor: "rgba(0,0,0,0)",
+			showLine: true,
+			lineTension: 0,
+			data: [{x:22,y:40},{x:26,y:40},{x:26,y:60},{x:22,y:60}]
+		}]
+	},
+	options: {
+		responsive: true,
+		maintainAspectRatio: false,
+		scales: {
+			xAxes: [{
+				type: 'linear',
+				position: 'bottom',
+				ticks: {
+					max:35,
+					min:5
+				}
+			}],
+			yAxes: [{
+				ticks: {
+					max:100,
+					min:0
+				}
+			}]
+		}
+	}
+});
+
 function statusTX () {
 	$('#header').css("background-color","#006400");
 }
@@ -177,67 +245,43 @@ function SamValidate() {
 	}
 }
 
-console.log("Init");
+function heatMapColorforValue(value){
+  var h = (1.0 - value) * 240
+  return "hsl(" + h + ", 100%, 50%)";
+}
 
-$(".knob").knob({
-	'release' : function (v) {
-		console.log("release!");
-		//Volume information
-		//0-100 on the knob equals -80db to 0db (-800 to 000)
-		var db = 10 * parseInt($("#vol_knob").val());
-		Yamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>'+db+'</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
-	}
-});
-
-var app = document.getElementById("app");
-
-Hammer(app).on("swiperight", function() {
-var $tab = $('.level1.active .nav-pills .active').prev();
-if ($tab.length > 0)
-  $tab.find('a').tab('show');
-});
-
-Hammer(app).on("swipeleft", function() {
-var $tab = $('.level1.active .nav-pills .active').next();
-if ($tab.length > 0)
-  $tab.find('a').tab('show');
-});
-
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-		maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
+function GetWeather() {
+	console.log("GetWeather");
+	
+	$.ajax({
+		url: "/weather",
+		success: function(result) {
+			result=JSON.parse(result);
+			
+			var now=new Date().getTime();
+			
+			var colors=Array();		
+			var data=Array();
+			for (i in result) {		
+				var temp=Array();
+				temp.x=result[i][1];
+				temp.y=result[i][0];
+				data.push(temp);
+				
+				var time=new Date(result[i][2],result[i][3]-1,result[i][4],result[i][5],result[i][6]).getTime();
+				var deltah = (now-time)/1000/60/60;
+				
+				console.log(deltah);
+				
+				if (deltah <= 1)
+					colors.push(heatMapColorforValue((deltah)));
+			}
+			scatterChart.data.datasets[0].data = data;
+			scatterChart.data.datasets[0].pointBackgroundColor = colors;
+			scatterChart.update();
+		},
+		error: function() {
+			console.log("Weather error");
+		}
+	});
+}

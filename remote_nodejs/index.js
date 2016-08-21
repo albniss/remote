@@ -13,6 +13,22 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname+'/app'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'))
 
+app.get('/Weather', function (req, res) {
+	console.log('Weather');
+	
+	var fs = require('fs');
+	fs.readFile("WEATHER.csv", 'utf8', function(err, contents) {
+		var ret=Array();
+		var lines=contents.split('\n');
+		for (i in lines) {
+			var temp=lines[i].split(";");
+			if (temp.length == 7)
+				ret.push(temp);
+		}
+		res.end(JSON.stringify(ret));
+	});
+});
+
 app.get('/IRTX', function (req, res) {
 	console.log('Remote: '+req.query.remote+" Key: "+req.query.key);
 	var exec = require('child_process').exec;
