@@ -263,19 +263,17 @@ function GetWeather() {
 			var colors=Array();		
 			var data=Array();
 			for (i in result) {		
-				var temp=Array();
-				temp.x=result[i][1];
-				temp.y=result[i][0];
-				data.push(temp);
-				
 				var time=new Date(result[i][2],result[i][3]-1,result[i][4],result[i][5],result[i][6]).getTime();
 				var deltah = (now-time)/1000/60/60;
-				
-				console.log(deltah);
-				
+
 				//We only want data that is at most 1-day old
-				if (deltah <= 24)
+				if (deltah <= 24) {					
+					var temp=Array();
+					temp.x=result[i][1];
+					temp.y=result[i][0];
+					data.push(temp);
 					colors.push(heatMapColorforValue((deltah/24)));
+				}
 			}
 			scatterChart.data.datasets[0].data = data;
 			scatterChart.data.datasets[0].pointBackgroundColor = colors;
