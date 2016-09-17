@@ -17,7 +17,7 @@ app.get('/Weather', function (req, res) {
 	console.log('Weather');
 	
 	var fs = require('fs');
-	fs.readFile("WEATHER.csv", 'utf8', function(err, contents) {
+	fs.readFile("/home/pi/WEATHER.csv", 'utf8', function(err, contents) {
 		var ret=Array();
 		var lines=contents.split('\n');
 		for (i in lines) {
