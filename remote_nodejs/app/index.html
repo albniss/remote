@@ -84,7 +84,7 @@
                   <div style="display:flex;justify-content:center;flex-flow:row wrap;align-items:center">
                     <span class="glyphicon glyphicon-arrow-up" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEUP","bedroom")'></span> 
                     <span class="glyphicon glyphicon-arrow-left" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_LEFT","bedroom")'></span>    
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("optoma","KEY_OK","bedroom")'">OK</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("optoma","KEY_OK","bedroom")'>OK</button>
                     <span class="glyphicon glyphicon-arrow-right" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_RIGHT","bedroom")'></span>
                     <span class="glyphicon glyphicon-arrow-down" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEDOWN","bedroom")'></span>
                   </div>
@@ -99,9 +99,13 @@
                 </div>
                 <br/>
                 <div class="row text-center">
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_MENU',1818)">Menu</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click="Optoma('KEY_1',1818)">Chromecast</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_2',1818)">Net</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("optoma","KEY_MENU","bedroom")'>Menu</button>
+				</div>
+				<br/>
+				<div class="row text-center">
+				  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("mux","KEY_1","bedroom")'>Net</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick='IRTX("mux","KEY_5","bedroom")'>Chromecast</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='IRTX("mux","KEY_2","bedroom")'>Pi</button>
                 </div>
               </div>
             </div>
@@ -471,7 +475,7 @@
                 <div class="row text-center">
                   <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick='Yamaha("HDMI1")'>Net</button>
                   <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick='Yamaha("HDMI2")'>Chromecast</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" onclick='Yamaha("HDMI3")'>PI</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" onclick='Yamaha("HDMI3")'>Pi</button>
                   <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff; margin-right:1em" onclick='Yamaha("HDMI4")'>PC</button>
                 </div>
                 <br/>
@@ -522,7 +526,7 @@
 
   <!-- Static bottom navbar -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.8</p>
+    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.9</p>
   </nav>
 
   <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
