@@ -1,0 +1,32 @@
+﻿As root (sudo -s), execute:	
+	vim /boot/config.txt
+		dtparam=spi=on
+		dtoverlay=lirc-rpi,gpio_in_pin=24,gpio_out_pin=18
+		dtoverlay=dht11,gpiopin=4
+		dtparam=audio=on
+		gpu_mem=256
+	vi /etc/sysctl.conf
+		# IPv6 disabled - Add at the end of file
+		net.ipv6.conf.all.disable_ipv6 = 1
+		net.ipv6.conf.default.disable_ipv6 = 1
+		net.ipv6.conf.lo.disable_ipv6 = 1
+	sysctl -p
+	apt-get update
+	apt-get upgrade
+	apt-get install lirc npm kodi vim htop
+	usermod -a -G input kodi
+	npm install -g forever
+	npm install -g bower
+
+As user pi, go to the home directory and type:
+	git clone https://github.com/albniss/remote.git
+	sudo cp /home/pi/remote/lirc/* /etc/lirc/
+	cd /home/pi/remote/remote_nodejs
+	npm install
+	bower install
+	cd /home/pi/remote/WL
+	g++ WL.cpp -o WL
+	crontab -e
+		@reboot /usr/local/bin/forever -c /usr/bin/node /home/pi/remote/remote_nodejs/index.js 1819
+		*/10 * * * * /home/pi/remote/WL/WL >> /home/pi/WEATHER.csv
+	
