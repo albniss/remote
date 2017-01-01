@@ -2,6 +2,7 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+var io = require('socket.io');
 
 //Enable CORS
 app.use(function(req, res, next) {
@@ -11,7 +12,8 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.static(__dirname+'/app'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'))
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
 app.get('/Weather', function (req, res) {
 	console.log('Weather');
@@ -72,4 +74,19 @@ app.get('/Yamaha', function (req, res) {
 var port=process.argv[2];
 http.listen(port, function() {
 	console.log('Server listening on port '+port);
+});
+
+var listener=io.listen(http);
+
+listener.sockets.on('connection',function(socket){
+	console.log('Got it!');
+	
+	socket.on('luz_sala', function(data){
+		console.log('luz_sala'+data.value);
+	});
+	
+	socket.on('luz_jantar', function(data){
+		console.log('luz_sala'+data.value);
+		
+	});
 });

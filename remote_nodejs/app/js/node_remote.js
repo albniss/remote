@@ -1,12 +1,31 @@
 console.log("Init");
 
-$(".knob").knob({
+var socket = io.connect();
+
+socket.on('message', function(data){
+    console.log(data.message);
+});
+
+$("#vol_knob").knob({
 	'release' : function (v) {
-		console.log("release!");
 		//Volume information
 		//0-100 on the knob equals -80db to 0db (-800 to 000)
 		var db = 10 * parseInt($("#vol_knob").val());
 		Yamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>'+db+'</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
+	}
+});
+
+$("#sala_knob").knob({
+	'change' : function (v) {
+		var i=parseInt(v+0.5);
+		socket.emit('luz_sala',{'value':i});
+	}
+});
+
+$("#jantar_knob").knob({
+	'change' : function (v) {
+		var i=parseInt(v+0.5);
+		socket.emit('luz_jantar',{'value':i});
 	}
 });
 

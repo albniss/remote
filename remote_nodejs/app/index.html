@@ -253,6 +253,7 @@
             <li><a data-toggle="tab" href="#ar2">Ar</a></li>
             <li><a data-toggle="tab" href="#yamaha">AV</a></li>
             <li><a data-toggle="tab" href="#kodi">Kodi</a></li>
+			<li><a data-toggle="tab" href="#l2">Luz</a></li>
           </ul>
           <div class="tab-content">
             <!-- Atividades Gerais -->
@@ -497,6 +498,23 @@
                 </div>
               </div>
             </div>
+			<!-- Luz -->
+			<div id="l2" class="tab-pane fade innertab">
+              <div class="main">
+                <div class="row" style="text-align: center">
+                  <input type="text" class="knob" id="sala_knob"   data-min=0 data-max=100 data-width=175 data-height=140 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="50">
+				  <br/>
+				  <h4>Sala</h4>
+                </div>
+				<br/>
+				<br/>
+				<div class="row" style="text-align: center">
+                  <input type="text" class="knob" id="jantar_knob" data-min=0 data-max=100 data-width=175 data-height=140 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="50">
+				  <br/>
+				  <h4>Jantar</h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 		<!-- Weather -->
@@ -526,7 +544,7 @@
 
   <!-- Static bottom navbar -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2016.9</p>
+    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2017.1</p>
   </nav>
 
   <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -534,6 +552,7 @@
   <script type="text/javascript" src="../bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
   <script type="text/javascript" src="../bower_components/hammerjs/hammer.min.js"></script>
   <script type="text/javascript" src="../bower_components/chart.js/dist/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="../node_modules/socket.io-client/socket.io.js"></script>
   <script type="text/javascript" src="js/node_remote.js"></script>
 </body>
 </html>
