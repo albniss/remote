@@ -1,12 +1,11 @@
 CXXFLAGS=-O3 -Wall -std=gnu++11
-LDFLAGS=-static-libgcc -static-libstdc++
 
 SRC= $(wildcard *.cpp)
 OBJ= $(SRC:.cpp=.o)
 
-all: Lutron.exe
+all: Lutron
 
-Lutron.exe: $(OBJ)
+Lutron: $(OBJ)
 	@echo "Linking..."
 	$(CXX) $(LDFLAGS) -o $@ $^
 	

@@ -26,6 +26,8 @@ As user pi, go to the home directory and type:
 	bower install
 	cd /home/pi/remote/WL
 	g++ WL.cpp -o WL
+	cd /home/pi/remote/RFSend
+	make
 	crontab -e
 		@reboot /usr/local/bin/forever -c /usr/bin/node /home/pi/remote/remote_nodejs/index.js 1819
 		*/10 * * * * /home/pi/remote/WL/WL >> /home/pi/WEATHER.csv

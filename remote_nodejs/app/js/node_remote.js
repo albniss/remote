@@ -1,90 +1,3 @@
-console.log("Init");
-
-var socket = io.connect();
-
-socket.on('message', function(data){
-    console.log(data.message);
-});
-
-$("#vol_knob").knob({
-	'release' : function (v) {
-		//Volume information
-		//0-100 on the knob equals -80db to 0db (-800 to 000)
-		var db = 10 * parseInt($("#vol_knob").val());
-		Yamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>'+db+'</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
-	}
-});
-
-$("#sala_knob").knob({
-	'change' : function (v) {
-		var i=parseInt(v+0.5);
-		socket.emit('luz_sala',{'value':i});
-	}
-});
-
-$("#jantar_knob").knob({
-	'change' : function (v) {
-		var i=parseInt(v+0.5);
-		socket.emit('luz_jantar',{'value':i});
-	}
-});
-
-var app = document.getElementById("app");
-
-Hammer(app).on("swiperight", function() {
-var $tab = $('.level1.active .nav-pills .active').prev();
-if ($tab.length > 0)
-  $tab.find('a').tab('show');
-});
-
-Hammer(app).on("swipeleft", function() {
-var $tab = $('.level1.active .nav-pills .active').next();
-if ($tab.length > 0)
-  $tab.find('a').tab('show');
-});
-
-var ctx = document.getElementById("myChart").getContext("2d");
-var scatterChart = new Chart(ctx, {
-	type: 'line',
-	data: {
-		datasets: [{
-			label: 'Scatter Dataset',
-			showLine: false,
-			data: []
-		},
-		{
-			label: 'Zona de Conforto',
-			borderColor: "rgba(0,0,0,0)",
-			backgroundColor: "rgba(0,255,0,0.2)",
-			pointBorderColor: "rgba(0,0,0,0)",
-			pointBackgroundColor: "rgba(0,0,0,0)",
-			showLine: true,
-			lineTension: 0,
-			data: [{x:22,y:40},{x:26,y:40},{x:26,y:60},{x:22,y:60}]
-		}]
-	},
-	options: {
-		responsive: true,
-		maintainAspectRatio: false,
-		scales: {
-			xAxes: [{
-				type: 'linear',
-				position: 'bottom',
-				ticks: {
-					max:35,
-					min:5
-				}
-			}],
-			yAxes: [{
-				ticks: {
-					max:100,
-					min:0
-				}
-			}]
-		}
-	}
-});
-
 function statusTX () {
 	$('#header').css("background-color","#006400");
 }
@@ -303,3 +216,106 @@ function GetWeather() {
 		}
 	});
 }
+
+console.log("Init");
+
+var socket = io.connect(getURL('living'));
+
+///Volume stuff
+var last_vol=-1000;
+socket.on('yamaha_vol', function(data){
+	if (last_vol != data.value) {
+		last_vol = data.value;
+		$("#vol_knob").val(data.value).trigger('change');
+	}
+});
+$("#vol_knob").knob({
+	'release' : function (v) {
+		if (parseInt($("#vol_knob").val()) != last_vol)
+		{
+			last_vol=parseInt($("#vol_knob").val());
+			//Volume information
+			//0-100 on the knob equals -80db to 0db (-800 to 000)
+			var db = 10 * parseInt($("#vol_knob").val());
+			Yamaha('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="PUT"><Main_Zone><Volume><Lvl><Val>'+db+'</Val><Exp>1</Exp><Unit>dB</Unit></Lvl></Volume></Main_Zone></YAMAHA_AV>');
+		}
+	}
+});
+
+///Lighting - Living room
+socket.on('luz_sala', function(data){
+    $("#sala_knob").val(data.value).trigger('change');
+});
+$("#sala_knob").knob({
+	'change' : function (v) {
+		var i=parseInt(v+0.5);
+		socket.emit('luz_sala',{'value':i});
+	}
+});
+
+///Lighting - Dining room
+socket.on('luz_jantar', function(data){
+    $("#jantar_knob").val(data.value).trigger('change');
+});
+$("#jantar_knob").knob({
+	'change' : function (v) {
+		var i=parseInt(v+0.5);
+		socket.emit('luz_jantar',{'value':i});
+	}
+});
+
+var app = document.getElementById("app");
+
+Hammer(app).on("swiperight", function() {
+var $tab = $('.level1.active .nav-pills .active').prev();
+if ($tab.length > 0)
+  $tab.find('a').tab('show');
+});
+
+Hammer(app).on("swipeleft", function() {
+var $tab = $('.level1.active .nav-pills .active').next();
+if ($tab.length > 0)
+  $tab.find('a').tab('show');
+});
+
+var ctx = document.getElementById("myChart").getContext("2d");
+var scatterChart = new Chart(ctx, {
+	type: 'line',
+	data: {
+		datasets: [{
+			label: 'Scatter Dataset',
+			showLine: false,
+			data: []
+		},
+		{
+			label: 'Zona de Conforto',
+			borderColor: "rgba(0,0,0,0)",
+			backgroundColor: "rgba(0,255,0,0.2)",
+			pointBorderColor: "rgba(0,0,0,0)",
+			pointBackgroundColor: "rgba(0,0,0,0)",
+			showLine: true,
+			lineTension: 0,
+			data: [{x:22,y:40},{x:26,y:40},{x:26,y:60},{x:22,y:60}]
+		}]
+	},
+	options: {
+		responsive: true,
+		maintainAspectRatio: false,
+		scales: {
+			xAxes: [{
+				type: 'linear',
+				position: 'bottom',
+				ticks: {
+					max:35,
+					min:5
+				}
+			}],
+			yAxes: [{
+				ticks: {
+					max:100,
+					min:0
+				}
+			}]
+		}
+	}
+});

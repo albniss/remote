@@ -56,7 +56,7 @@ uint8_t Command::Reflect(uint8_t in) const
 
 std::string Command::GetBytes() const
 {
-	std::stringstream ss=std::stringstream();
+	std::stringstream ss;
 
 	for (auto b : bytes)
 		ss << std::hex << std::setw(2) << std::setfill('0') << (int)b;
