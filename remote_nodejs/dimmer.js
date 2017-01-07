@@ -32,7 +32,7 @@ Dimmer.prototype.DoWork = function() {
 	value = parseInt(value*254/100);
 		
 	//Execute
-	exec('../RFSend/Lutron '+this.count+' '+serial+' '+value, this.DoWorkCb.bind(this));
+	exec('/home/pi/remote/RFSend/Lutron '+this.count+' '+serial+' '+value, this.DoWorkCb.bind(this));
 }
 
 Dimmer.prototype.QueueWork = function (serial, value) {
