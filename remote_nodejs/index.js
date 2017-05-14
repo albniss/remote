@@ -115,13 +115,13 @@ listener.sockets.on('connection',function(socket){
 	
 	socket.on('luz_jantar', function(data){
 		luz_jantar=data.value;
-		dimmer.QueueWork("1184",data.value);
+		dimmer.QueueWork("6e4c1184",data.value);
 		socket.broadcast.emit('luz_jantar',data);
 	});
 	
 	socket.on('luz_sala', function(data){
 		luz_sala=data.value;
-		dimmer.QueueWork("1344",data.value);
+		dimmer.QueueWork("6e4c1344",data.value);
 		socket.broadcast.emit('luz_sala',data);
 	});
 });

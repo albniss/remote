@@ -264,9 +264,9 @@ int main(int argc, char* argv[])
 		//Get count
 		uint32_t count = strtol(argv[1],NULL,10);		
 		//Get serial
-		uint8_t sn[2];
+		uint8_t sn[4];
 		std::string string_serial=std::string(argv[2]);
-		if (string_serial.length() != 4) {
+		if (string_serial.length() != 8) {
 			cout << "Invalid serial!\n";
 			exit(-1);
 		}

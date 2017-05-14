@@ -8,9 +8,9 @@
 class Serial : public IParam
 {
 public:
-	Serial(uint8_t serial[2], const Command cmd);
+	Serial(uint8_t serial[4], const Command cmd);
 private:
-	static constexpr int crccycles=67;
+	static constexpr int crccycles=67-16;
 };
 
 #endif
