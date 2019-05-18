@@ -3,9 +3,9 @@ CXXFLAGS=-O3 -Wall -std=gnu++11
 SRC= $(wildcard *.cpp)
 OBJ= $(SRC:.cpp=.o)
 
-all: RFSend
+all: WL
 
-RFSend: $(OBJ)
+WL: $(OBJ)
 	@echo "Linking..."
 	$(CXX) $(LDFLAGS) -o $@ $^
 	
@@ -13,8 +13,8 @@ RFSend: $(OBJ)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 install:
-	install -m 755 RFSend /usr/bin
+	install -m 755 WL /usr/bin
 	
 clean:
 	rm *.o
-	rm RFSend
+	rm WL
