@@ -264,6 +264,17 @@ $("#jantar_knob").knob({
 	}
 });
 
+///Lighting - Baby room
+socket.on('luz_baby', function(data){
+    $("#baby_knob").val(data.value).trigger('change');
+});
+$("#baby_knob").knob({
+	'change' : function (v) {
+		var i=parseInt(v+0.5);
+		socket.emit('luz_jantar',{'value':i});
+	}
+});
+
 var app = document.getElementById("app");
 
 Hammer(app).on("swiperight", function() {

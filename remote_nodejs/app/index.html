@@ -31,22 +31,23 @@
   <div class="container-fluid">
     <div class="row">
       <ul id="header" class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#bedroom">Bedroom</a></li>
-        <li><a data-toggle="tab" href="#living">Living</a></li>
-		<li><a data-toggle="tab" href="#weather" onclick="GetWeather();">Weather</a></li>
+        <li class="active"><a data-toggle="tab" href="#casal">Casal</a></li>
+        <li><a data-toggle="tab" href="#sala">Sala</a></li>
+		<li><a data-toggle="tab" href="#baby">Baby</a></li>
       </ul>
       <div id="app" class="tab-content">
-		<!-- Bedroom -->
-        <div id="bedroom" class="active tab-pane level1" style="background-color: #fff">
+		<!-- Casal -->
+        <div id="casal" class="active tab-pane level1" style="background-color: #fff">
           <ul class="nav nav-pills">
             <li class="active"><a data-toggle="tab" href="#atividades">Ativ</a></li>
-            <li><a data-toggle="tab" href="#projetor">Proj</a></li>
-            <li><a data-toggle="tab" href="#net">Net</a></li>
-            <li><a data-toggle="tab" href="#ar">Ar</a></li>
+            <li><a data-toggle="tab" href="#casal-projetor">Proj</a></li>
+            <li><a data-toggle="tab" href="#casal-net">Net</a></li>
+            <li><a data-toggle="tab" href="#casal-ar">Ar</a></li>
+			<li><a data-toggle="tab" href="#casal-tempo" onclick="GetWeather();">Tempo</a></li>
           </ul>
           <div class="tab-content">
             <!-- Atividades Gerais -->
-            <div id="atividades" class="tab-pane fade in active albert">
+            <div id="casal-atividades" class="tab-pane fade in active">
               <div class="main">
                 <div class="row placeholders">
                   <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("optoma","KEY_POWER","bedroom")'">
@@ -69,7 +70,7 @@
               </div>
             </div>
             <!-- Projetor -->
-            <div id="projetor" class="tab-pane fade innertab">
+            <div id="casal-projetor" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
@@ -110,7 +111,7 @@
               </div>
             </div>
             <!-- Net -->
-            <div id="net" class="tab-pane fade innertab">
+            <div id="casal-net" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row text-center">
                   <div class="col-xs-6">
@@ -167,7 +168,7 @@
               </div>
             </div>
             <!-- Ar condicionado -->
-            <div id="ar" class="tab-pane fade innertab">
+            <div id="casal-ar" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
@@ -242,22 +243,28 @@
                 </div>
               </div>
             </div>
+			<!-- Tempo -->
+            <div id="casal-tempo" class="tab-pane fade innertab">
+              <div style="width:100%;height:100%">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- Living -->
-        <div id="living" class="tab-pane level1" style="background-color: #fff">
+        <!-- Sala -->
+        <div id="sala" class="tab-pane level1" style="background-color: #fff">
           <ul class="nav nav-pills">
-            <li class="active"><a data-toggle="tab" href="#a2">Ativ</a></li>
-            <li><a data-toggle="tab" href="#p2">Proj</a></li>
-            <li><a data-toggle="tab" href="#n2">Net</a></li>
-            <li><a data-toggle="tab" href="#ar2">Ar</a></li>
-            <li><a data-toggle="tab" href="#yamaha">AV</a></li>
-            <li><a data-toggle="tab" href="#kodi">Kodi</a></li>
-			<li><a data-toggle="tab" href="#l2">Luz</a></li>
+            <li class="active"><a data-toggle="tab" href="#sala-atividades">Ativ</a></li>
+            <li><a data-toggle="tab" href="#sala-projetor">Proj</a></li>
+            <li><a data-toggle="tab" href="#sala-net">Net</a></li>
+            <li><a data-toggle="tab" href="#sala-ar">Ar</a></li>
+            <li><a data-toggle="tab" href="#sala-yamaha">AV</a></li>
+			<li><a data-toggle="tab" href="#sala-luz">Luz</a></li>
+			<li><a data-toggle="tab" href="#sala-tempo">Tempo</a></li>
           </ul>
           <div class="tab-content">
             <!-- Atividades Gerais -->
-            <div id="a2" class="tab-pane fade in active innertab">
+            <div id="sala-atividades" class="tab-pane fade in active innertab">
               <div class="main">
                 <div class="row placeholders">
                   <div class="col-xs-6 col-sm-3 placeholder" onclick='_IRTX("optoma","KEY_POWER","living").then(Yamaha("ON"))'>
@@ -280,7 +287,7 @@
               </div>
             </div>
             <!-- Projetor -->
-            <div id="p2" class="tab-pane fade innertab">
+            <div id="sala-projetor" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
@@ -317,7 +324,7 @@
               </div>
             </div>
             <!-- Net -->
-            <div id="n2" class="tab-pane fade innertab">
+            <div id="sala-net" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row text-center">
                   <div class="col-xs-6">
@@ -374,7 +381,7 @@
               </div>
             </div>
             <!-- Ar condicionado -->
-            <div id="ar2" class="tab-pane fade innertab">
+            <div id="sala-ar" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
@@ -459,7 +466,7 @@
               </div>
             </div>
             <!-- Yamaha -->
-            <div id="yamaha" class="tab-pane fade innertab">
+            <div id="sala-yamaha" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row">
                   <div class="col-xs-6 col-sm-4 placeholder">
@@ -487,19 +494,8 @@
                 </div>
               </div>
             </div>
-            <!-- Kodi -->
-            <div id="kodi" class="tab-pane fade innertab">
-              <div class="main">
-                <div class="row placeholders">
-                  <div class="col-xs-6 col-sm-3 placeholder" ng-click="Yamaha(0,0)">
-                    <img src="images/tv.png" class="img-responsive" alt="TESTE">
-                    <h4 style="text-align:center">Kodi</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
 			<!-- Luz -->
-			<div id="l2" class="tab-pane fade innertab">
+			<div id="sala-luz" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row" style="text-align: center">
                   <input type="text" class="knob" id="sala_knob"   data-min=0 data-max=100 data-width=175 data-height=140 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="50">
@@ -515,36 +511,130 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-		<!-- Weather -->
-        <div id="weather" class="tab-pane level1" style="background-color: #fff">
-          <ul class="nav nav-pills">
-            <li class="active"><a data-toggle="tab" href="#wxbedroom">Bedroom</a></li>
-            <li><a data-toggle="tab" href="#wxliving">Living</a></li>
-          </ul>
-          <div class="tab-content">
-            <!-- Weather Bedroom -->
-            <div id="wxbedroom" class="tab-pane fade in active innertab">
-				<div style="width:100%;height:100%">
-					<canvas id="myChart"></canvas>
-				</div>
-				<!-- style="position:absolute;top:100px !important;bottom:40px !important;width:100%" -->
-            </div>
-            <!-- Weather Living -->
-            <div id="wxliving" class="tab-pane fade innertab">
-              <div class="main">
+          	<!-- Tempo -->
+            <div id="sala-tempo" class="tab-pane fade innertab">
+              <div style="width:100%;height:100%">
+                <canvas id="sala-canvas"></canvas>
               </div>
             </div>
-          </div>
+		  </div>
         </div>
+        <!-- Baby -->
+        <div id="baby" class="tab-pane level1" style="background-color: #fff">
+          <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="tab" href="#baby-ar">Ar</a></li>
+			<li><a data-toggle="tab" href="#baby-luz">Luz</a></li>
+			<li><a data-toggle="tab" href="#baby-tempo">Tempo</a></li>
+          </ul>
+          <!-- Ar condicionado -->
+          <div id="baby-ar" class="tab-pane fade in active innertab">
+              <div class="main">
+                <div class="row">
+                  <div class= "col-xs-6 col-sm-4 placeholder">
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Samsung("ON",$("#ar2 #temp").val(),$("#ar2 #fan").val(),$("#ar2 #mode").val(),$("#ar2 #low_noise").val(),$("#ar2 #swing").val(),"living")'></span>
+                  </div>  
+                  <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Samsung("OFF",$("#ar2 #temp").val(),$("#ar2 #fan").val(),$("#ar2 #mode").val(),$("#ar2 #low_noise").val(),$("#ar2 #swing").val(),"living")'></span>
+                  </div> 
+                </div> 
+                <br/>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="col-xs-6">Temperatura</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="temp">
+                      <option value="18">18C</option>
+                      <option value="19">19C</option>
+                      <option value="20">20C</option>
+                      <option value="21">21C</option>
+                      <option value="22">22C</option>
+                      <option value="23" selected>23C</option>
+                      <option value="24">24C</option>
+                      <option value="25">25C</option>
+                      <option value="26">26C</option>
+                      <option value="27">27C</option>
+                      <option value="28">28C</option>
+                      <option value="29">29C</option>
+                      <option value="30">30C</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;">
+                  <div class="col-xs-6">Mode</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="mode" onchange="SamValidate()">
+                      <option value="COOL">Cool</option>
+                      <option value="HEAT">Heat</option>
+                      <option value="AUTO" selected>Auto</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;">  
+                  <div class="col-xs-6">Fan</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="fan" disabled="true">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="AUTO" selected>Auto</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="col-xs-6">Low  Noise</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="low_noise">
+                      <option value="1" selected>ON</option>
+                      <option value="0">OFF</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="col-xs-6">Swing</div>
+                  <div class="col-xs-6">
+                    <select style="width:100%" id="swing">
+                      <option value="0" selected>OFF</option>
+                      <option value="1">ON</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+                <div class="row" style="font-size:1.25em;"> 
+                  <div class="row-fluid"> 
+                    <div class="col-xs-4 col-xs-offset-4">
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Samsung("ON",$("#ar2 #temp").val(),$("#ar2 #fan").val(),$("#ar2 #mode").val(),$("#ar2 #low_noise").val(),$("#ar2 #swing").val(),"living")'>OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Luz -->
+          <div id="baby-luz" class="tab-pane fade innertab">
+              <div class="main">
+                <div class="row" style="text-align: center">
+                  <input type="text" class="knob" id="baby_knob"   data-min=0 data-max=100 data-width=175 data-height=140 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="50">
+				  <br/>
+				  <h4>Baby</h4>
+                </div>
+              </div>
+          </div>
+          <!-- Tempo -->
+          <div id="baby-tempo" class="tab-pane fade innertab">
+            <div style="width:100%;height:100%">
+              <canvas id="baby-canvas"></canvas>
+            </div>
+          </div>
+		</div>
 	  </div>
     </div>
   </div>
 
   <!-- Static bottom navbar -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2017.1</p>
+    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2019.5</p>
   </nav>
 
   <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
