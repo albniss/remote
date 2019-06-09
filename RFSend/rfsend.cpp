@@ -126,6 +126,7 @@ void SPI::SendCommand(Commands cmd)
 
 	struct spi_ioc_transfer xfer;
 	memset(&xfer, 0, sizeof(xfer));
+	xfer.speed_hz = (unsigned long) 100000;
 	xfer.tx_buf = (unsigned long)txBuffer;
 	xfer.rx_buf = (unsigned long)rxBuffer;
 	xfer.len = 1;
@@ -147,6 +148,7 @@ void SPI::WriteReg(Registers reg, unsigned char val)
 
 	struct spi_ioc_transfer xfer;
 	memset(&xfer, 0, sizeof(xfer));
+	xfer.speed_hz = (unsigned long) 100000;
 	xfer.tx_buf = (unsigned long)txBuffer;
 	xfer.rx_buf = (unsigned long)rxBuffer;
 	xfer.len = 2;
@@ -172,6 +174,7 @@ unsigned char SPI::ReadReg(Registers reg)
 
 	struct spi_ioc_transfer xfer;
 	memset(&xfer, 0, sizeof(xfer));
+	xfer.speed_hz = (unsigned long) 100000;
 	xfer.tx_buf = (unsigned long)txBuffer;
 	xfer.rx_buf = (unsigned long)rxBuffer;
 	xfer.len = 2;
@@ -198,6 +201,7 @@ void SPI::WriteFIFO(unsigned char* buf, int size)
 
 	struct spi_ioc_transfer xfer;
 	memset(&xfer, 0, sizeof(xfer));
+	xfer.speed_hz = (unsigned long) 100000;
 	xfer.tx_buf = (unsigned long)txBuffer;
 	xfer.rx_buf = (unsigned long)rxBuffer;
 	xfer.len = size+1;
@@ -223,6 +227,7 @@ void SPI::ReadFIFO(unsigned int size)
 	
 	struct spi_ioc_transfer xfer;
 	memset(&xfer, 0, sizeof(xfer));
+	xfer.speed_hz = (unsigned long) 100000;
 	xfer.tx_buf = (unsigned long)txBuffer;
 	xfer.rx_buf = (unsigned long)rxBuffer;
 	xfer.len = size+1;
