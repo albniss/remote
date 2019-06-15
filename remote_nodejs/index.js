@@ -1,6 +1,8 @@
 // index.js
+var compression = require('compression');
 var express = require('express');
 var app = express();
+app.use(compression());
 var http = require('http').Server(app);
 var io = require('socket.io');
 var Dimmer = require('./dimmer.js');
@@ -13,9 +15,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.static(__dirname+'/app'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-app.use('/node_modules',  express.static(__dirname + '/node_modules'));
+app.use(express.static(__dirname+'/app', {maxAge: '365d'}));
+app.use('/bower_components',  express.static(__dirname + '/bower_components', {maxAge: '365d'}));
+app.use('/node_modules',  express.static(__dirname + '/node_modules', {maxAge: '365d'}));
 
 app.get('/Weather', function (req, res) {
 	console.log('Weather');

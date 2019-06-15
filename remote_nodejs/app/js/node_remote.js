@@ -13,12 +13,17 @@ function statusNormal () {
 function getURL(room) {
 	var url;
 	
-	if (window.location.hostname == "192.168.200.201" || window.location.hostname == "192.168.200.202") {
+	if (window.location.hostname == "192.168.200.201" || 
+		window.location.hostname == "192.168.200.202" || 
+		window.location.hostname == "192.168.200.203" ) {
 		if ("bedroom"==room) {
 			url="http://192.168.200.201:1818";
 		}
 		else if ("living"==room) {
 			url="http://192.168.200.202:1819";
+		}
+		else if ("baby"==room) {
+			url="http://192.168.200.203:1820";
 		}
 	}
 	else {
@@ -27,6 +32,9 @@ function getURL(room) {
 		}
 		else if ("living"==room) {
 			url="http://"+window.location.hostname+":1819";
+		}
+		else if ("baby"==room) {
+			url="http://"+window.location.hostname+":1820";
 		}
 	}
 	
