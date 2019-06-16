@@ -43,6 +43,7 @@ string PrintCommand(unsigned char Temp, unsigned char Mode, unsigned char Fan, u
 			else
 				ret+= to_string(PULSE) + " " + to_string(SPACE_SHORT) + " ";
 		}
+		ret+="\n";
 	}
 
 	ret+= to_string(PULSE) + "\n" + "\n";
