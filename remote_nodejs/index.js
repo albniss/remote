@@ -83,47 +83,69 @@ http.listen(port, function() {
 var listener=io.listen(http);
 var luz_jantar=0;
 var luz_sala=0;
+var luz_baby=0;
 
 listener.sockets.on('connection',function(socket){
 	console.log('Got it!');
 	var data={};
-	data.value=luz_jantar;
-	socket.emit('luz_jantar',data);
-	data.value=luz_sala;
-	socket.emit('luz_sala',data);
-
-	var http = require('http');
-	var options = {
-		host: '192.168.200.250',
-		port: '80',
-		path: '/YamahaRemoteControl/ctrl',
-		method: 'POST'
-	};
-	var yamaha_req = http.request(options, function(response) {
-		var completeResponse = '';
-        response.on('data', function (chunk) {
-            completeResponse += chunk;
-        });
-        response.on('end', function() {
-			var found = completeResponse.match(/<Val>(.*)<\/Val>/);
-			console.log(found[1]);
-			var data={};
-			data.value=parseInt((found[1]-1)/10);
-			socket.emit('yamaha_vol',data);
-        });
-	});
-	yamaha_req.write('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="GET"><Main_Zone><Volume><Lvl>GetParam</Lvl></Volume></Main_Zone></YAMAHA_AV>');
-	yamaha_req.end();
 	
-	socket.on('luz_jantar', function(data){
-		luz_jantar=data.value;
-		dimmer.QueueWork("6e4c1184",data.value);
-		socket.broadcast.emit('luz_jantar',data);
-	});
+	//Living
+	if (port==1819)
+	{
+		console.log('Got: Living');
+		data.value=luz_jantar;
+		socket.emit('luz_jantar',data);
+		data.value=luz_sala;
+		socket.emit('luz_sala',data);
+		
+		var http = require('http');
+		var options = {
+			host: '192.168.200.250',
+			port: '80',
+			path: '/YamahaRemoteControl/ctrl',
+			method: 'POST'
+		};
+		var yamaha_req = http.request(options, function(response) {
+			var completeResponse = '';
+			response.on('data', function (chunk) {
+				completeResponse += chunk;
+			});
+			response.on('end', function() {
+				var found = completeResponse.match(/<Val>(.*)<\/Val>/);
+				console.log(found[1]);
+				var data={};
+				data.value=parseInt((found[1]-1)/10);
+				socket.emit('yamaha_vol',data);
+			});
+		});
+		yamaha_req.write('<?xml version="1.0" encoding="utf-8"?><YAMAHA_AV cmd="GET"><Main_Zone><Volume><Lvl>GetParam</Lvl></Volume></Main_Zone></YAMAHA_AV>');
+		yamaha_req.end();		
+		
+		socket.on('luz_jantar', function(data){
+			luz_jantar=data.value;
+			dimmer.QueueWork("6e4c1184",data.value);
+			socket.broadcast.emit('luz_jantar',data);
+		});
 	
-	socket.on('luz_sala', function(data){
-		luz_sala=data.value;
-		dimmer.QueueWork("6e4c1344",data.value);
-		socket.broadcast.emit('luz_sala',data);
-	});
+		socket.on('luz_sala', function(data){
+			luz_sala=data.value;
+			dimmer.QueueWork("6e4c1344",data.value);
+			socket.broadcast.emit('luz_sala',data);
+		});
+	}
+	
+	//Bedroom
+	else if (port==1818)
+	{
+		console.log('Got: Bedroom');
+		
+		data.value=luz_baby;
+		socket.emit('luz_baby',data);
+		
+		socket.on('luz_baby', function(data){
+			luz_baby=data.value;
+			dimmer.QueueWork("68d252b4",data.value);
+			socket.broadcast.emit('luz_baby',data);
+		});
+	}
 });

@@ -227,11 +227,12 @@ function GetWeather() {
 
 console.log("Init");
 
-var socket = io.connect(getURL('living'));
+var socket_living = io.connect(getURL('living'));
+var socket_baby = io.connect(getURL('bedroom'));
 
 ///Volume stuff
 var last_vol=-1000;
-socket.on('yamaha_vol', function(data){
+socket_living.on('yamaha_vol', function(data){
 	if (last_vol != data.value) {
 		last_vol = data.value;
 		$("#vol_knob").val(data.value).trigger('change');
@@ -251,35 +252,35 @@ $("#vol_knob").knob({
 });
 
 ///Lighting - Living room
-socket.on('luz_sala', function(data){
+socket_living.on('luz_sala', function(data){
     $("#sala_knob").val(data.value).trigger('change');
 });
 $("#sala_knob").knob({
 	'change' : function (v) {
 		var i=parseInt(v+0.5);
-		socket.emit('luz_sala',{'value':i});
+		socket_living.emit('luz_sala',{'value':i});
 	}
 });
 
 ///Lighting - Dining room
-socket.on('luz_jantar', function(data){
+socket_living.on('luz_jantar', function(data){
     $("#jantar_knob").val(data.value).trigger('change');
 });
 $("#jantar_knob").knob({
 	'change' : function (v) {
 		var i=parseInt(v+0.5);
-		socket.emit('luz_jantar',{'value':i});
+		socket_living.emit('luz_jantar',{'value':i});
 	}
 });
 
 ///Lighting - Baby room
-socket.on('luz_baby', function(data){
+socket_baby.on('luz_baby', function(data){
     $("#baby_knob").val(data.value).trigger('change');
 });
 $("#baby_knob").knob({
 	'change' : function (v) {
 		var i=parseInt(v+0.5);
-		socket.emit('luz_jantar',{'value':i});
+		socket_baby.emit('luz_baby',{'value':i});
 	}
 });
 
