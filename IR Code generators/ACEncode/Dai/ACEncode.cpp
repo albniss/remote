@@ -88,8 +88,8 @@ int main()
 	};
 
 	map<string,unsigned char> onoff = {
-		{"ON", 0x0},
-		{"OFF", 0x1},
+		{"ON", 0x1},
+		{"OFF", 0x0},
 	};
 
 	cout << "Welcome to the AC Encoder" << endl;
