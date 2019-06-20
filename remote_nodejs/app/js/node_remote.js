@@ -101,6 +101,18 @@ function Samsung(onoff,temp,fan,mode,lownoise,swing,room) {
 	IRTX("samsung",command,room);
 }
 
+function Daikin(onoff,temp,fan,mode,eco,swing,room) {
+	var command;
+	
+	if ("ON" == onoff) {
+		command = "CMD_"+temp+"_"+mode+"_"+fan+"_"+eco+"_"+swing;
+	}
+	else {
+		command="CMD_OFF";
+	}				
+	IRTX("daikin",command,room);
+}
+
 function _Yamaha(payload) {
 	var url=getURL('living');
 	var deferred = jQuery.Deferred();
@@ -176,12 +188,12 @@ function Yamaha(command) {
 }
 
 function SamValidate() {
-	if ($("#ar2 #mode").val() == "AUTO") {
-		$("#ar2 #fan").val("AUTO");
-		$("#ar2 #fan").prop("disabled",true);
+	if ($("#sala-ar #sala-mode").val() == "AUTO") {
+		$("#sala-ar #sala-fan").val("AUTO");
+		$("#sala-ar #sala-fan").prop("disabled",true);
 	}
 	else {
-		$("#ar2 #fan").prop("disabled",false);
+		$("#sala-ar #sala-fan").prop("disabled",false);
 	}
 }
 

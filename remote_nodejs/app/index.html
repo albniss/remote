@@ -50,7 +50,7 @@
             <div id="casal-atividades" class="tab-pane fade in active">
               <div class="main">
                 <div class="row placeholders">
-                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("optoma","KEY_POWER","bedroom")'">
+                  <div class="col-xs-6 col-sm-3 placeholder" onclick='IRTX("optoma","KEY_POWER","bedroom")'>
                     <img src="images/tv.png" class="img-responsive" alt="Projetor">
                     <h4 style="text-align:center">Projetor</h4>
                   </div>
@@ -172,17 +172,17 @@
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Fujitsu("ON",$("#casal-ar #temp").val(),$("#casal-ar #fan").val(),$("#casal-ar #mode").val(),$("#casal-ar #low_noise").val(),"bedroom")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Fujitsu("ON",$("#casal-ar #casal-temp").val(),$("#casal-ar #casal-fan").val(),$("#casal-ar #casal-mode").val(),$("#casal-ar #casal-low_noise").val(),"bedroom")'></span>
                   </div>  
                   <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Fujitsu("OFF",$("#casal-ar #temp").val(),$("#casal-ar #fan").val(),$("#casal-ar #mode").val(),$("#casal-ar #low_noise").val(),"bedroom")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Fujitsu("OFF",$("#casal-ar #casal-temp").val(),$("#casal-ar #casal-fan").val(),$("#casal-ar #casal-mode").val(),$("#casal-ar #casal-low_noise").val(),"bedroom")'></span>
                   </div> 
                 </div> 
                 <br/>
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Temperatura</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="temp">
+                    <select style="width:100%" id="casal-temp">
                       <option value="18">18C</option>
                       <option value="19">19C</option>
                       <option value="20">20C</option>
@@ -203,7 +203,7 @@
                 <div class="row" style="font-size:1.25em;">  
                   <div class="col-xs-6">Fan</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="fan">
+                    <select style="width:100%" id="casal-fan">
                       <option value="1" selected>1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -216,7 +216,7 @@
                 <div class="row" style="font-size:1.25em;">
                   <div class="col-xs-6">Mode</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="mode">
+                    <select style="width:100%" id="casal-mode">
                       <option value="COOL">Cool</option>
                       <option value="HEAT">Heat</option>
                       <option value="AUTO" selected>Auto</option>
@@ -227,7 +227,7 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Low  Noise</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="low_noise">
+                    <select style="width:100%" id="casal-low_noise">
                       <option value="1" selected>ON</option>
                       <option value="0">OFF</option>
                     </select>
@@ -237,7 +237,7 @@
                   <br/>
                   <div class="row-fluid"> 
                     <div class="col-xs-4 col-xs-offset-4">
-                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Fujitsu("CUSTOM",$("#casal-ar #temp").val(),$("#casal-ar #fan").val(),$("#casal-ar #mode").val(),$("#casal-ar #low_noise").val(),"bedroom")'>OK</button>
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Fujitsu("CUSTOM",$("#casal-ar #casal-temp").val(),$("#casal-ar #casal-fan").val(),$("#casal-ar #casal-mode").val(),$("#casal-ar #casal-low_noise").val(),"bedroom")'>OK</button>
                     </div>
                   </div>
                 </div>
@@ -302,7 +302,7 @@
                   <div style="display:flex;justify-content:center;flex-flow:row wrap;align-items:center">
                     <span class="glyphicon glyphicon-arrow-up" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEUP","living")'></span> 
                     <span class="glyphicon glyphicon-arrow-left" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_LEFT","living")'></span>    
-                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("optoma","KEY_OK","living")'">OK</button>
+                    <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em;margin-right:1em" onclick='IRTX("optoma","KEY_OK","living")'>OK</button>
                     <span class="glyphicon glyphicon-arrow-right" style="font-size: 4em; color: #337ab7" onclick='IRTX("optoma","KEY_RIGHT","living")'></span>
                     <span class="glyphicon glyphicon-arrow-down" style="font-size: 4em;color:#337ab7;display:flex;flex:1 100%;justify-content:center" onclick='IRTX("optoma","KEY_VOLUMEDOWN","living")'></span>
                   </div>
@@ -317,9 +317,9 @@
                 </div>
                 <br/>
                 <div class="row text-center">
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_MENU',1818)">Menu</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" ng-click="Optoma('KEY_1',1818)">Chromecast</button>
-                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" ng-click="Optoma('KEY_2',1818)">Net</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick="Optoma('KEY_MENU',1818)">Menu</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff;margin-left:1em; margin-right:1em" onclick="Optoma('KEY_1',1818)">Chromecast</button>
+                  <button type="button" class="btn btn-success" style="background-color: #337ab7; color: #fff" onclick="Optoma('KEY_2',1818)">Net</button>
                 </div>
               </div>
             </div>
@@ -385,17 +385,17 @@
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Samsung("ON",$("#sala-ar #temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Samsung("ON",$("#sala-ar #sala-temp").val(),$("#sala-ar #sala-fan").val(),$("#sala-ar #sala-mode").val(),$("#sala-ar #sala-low_noise").val(),$("#sala-ar #sala-swing").val(),"living")'></span>
                   </div>  
                   <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Samsung("OFF",$("#sala-ar #temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Samsung("OFF",$("#sala-ar #sala-temp").val(),$("#sala-ar #sala-fan").val(),$("#sala-ar #sala-mode").val(),$("#sala-ar #sala-low_noise").val(),$("#sala-ar #sala-swing").val(),"living")'></span>
                   </div> 
                 </div> 
                 <br/>
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Temperatura</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="temp">
+                    <select style="width:100%" id="sala-temp">
                       <option value="18">18C</option>
                       <option value="19">19C</option>
                       <option value="20">20C</option>
@@ -416,7 +416,7 @@
                 <div class="row" style="font-size:1.25em;">
                   <div class="col-xs-6">Mode</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="mode" onchange="SamValidate()">
+                    <select style="width:100%" id="sala-mode" onchange="SamValidate()">
                       <option value="COOL">Cool</option>
                       <option value="HEAT">Heat</option>
                       <option value="AUTO" selected>Auto</option>
@@ -427,7 +427,7 @@
                 <div class="row" style="font-size:1.25em;">  
                   <div class="col-xs-6">Fan</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="fan" disabled="true">
+                    <select style="width:100%" id="sala-fan" disabled>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -439,7 +439,7 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Low  Noise</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="low_noise">
+                    <select style="width:100%" id="sala-low_noise">
                       <option value="1" selected>ON</option>
                       <option value="0">OFF</option>
                     </select>
@@ -449,7 +449,7 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Swing</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="swing">
+                    <select style="width:100%" id="sala-swing">
                       <option value="0" selected>OFF</option>
                       <option value="1">ON</option>
                     </select>
@@ -459,7 +459,7 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="row-fluid"> 
                     <div class="col-xs-4 col-xs-offset-4">
-                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Samsung("ON",$("#sala-ar #temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'>OK</button>
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Samsung("ON",$("#sala-ar #sala-temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'>OK</button>
                     </div>
                   </div>
                 </div>
@@ -526,22 +526,23 @@
 			<li><a data-toggle="tab" href="#baby-luz">Luz</a></li>
 			<li><a data-toggle="tab" href="#baby-tempo">Tempo</a></li>
           </ul>
-          <!-- Ar condicionado -->
-          <div id="baby-ar" class="tab-pane fade in active innertab">
+		  <div class="tab-content">
+            <!-- Ar condicionado -->
+            <div id="baby-ar" class="tab-pane fade in active innertab">
               <div class="main">
                 <div class="row">
                   <div class= "col-xs-6 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Samsung("ON",$("#sala-ar #temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #3AD506; text-align:center;display:block" onclick='Samsung("ON",$("#baby-ar #baby-temp").val(),$("#baby-ar #baby-fan").val(),$("#baby-ar #baby-mode").val(),$("#baby-ar #baby-low_noise").val(),$("#baby-ar #baby-swing").val(),"baby")'></span>
                   </div>  
                   <div class= "col-xs-6 col-sm-offset-4 col-sm-4 placeholder">
-                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Samsung("OFF",$("#sala-ar #temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'></span>
+                    <span class="glyphicon glyphicon-off" style="font-size: 3em;color: #EB1616; text-align:center;display:block" onclick='Samsung("OFF",$("#baby-ar #baby-temp").val(),$("#baby-ar #baby-fan").val(),$("#baby-ar #baby-mode").val(),$("#baby-ar #baby-low_noise").val(),$("#baby-ar #baby-swing").val(),"baby")'></span>
                   </div> 
                 </div> 
                 <br/>
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Temperatura</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="temp">
+                    <select style="width:100%" id="baby-temp">
                       <option value="18">18C</option>
                       <option value="19">19C</option>
                       <option value="20">20C</option>
@@ -562,7 +563,7 @@
                 <div class="row" style="font-size:1.25em;">
                   <div class="col-xs-6">Mode</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="mode" onchange="SamValidate()">
+                    <select style="width:100%" id="baby-mode">
                       <option value="COOL">Cool</option>
                       <option value="HEAT">Heat</option>
                       <option value="AUTO" selected>Auto</option>
@@ -573,19 +574,22 @@
                 <div class="row" style="font-size:1.25em;">  
                   <div class="col-xs-6">Fan</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="fan" disabled="true">
+                    <select style="width:100%" id="baby-fan">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
+					  <option value="4">4</option>
+					  <option value="5">5</option>
+					  <option value="NIGHT">Night</option>
                       <option value="AUTO" selected>Auto</option>
                     </select>
                   </div>
                 </div>
                 <br/>
                 <div class="row" style="font-size:1.25em;"> 
-                  <div class="col-xs-6">Low  Noise</div>
+                  <div class="col-xs-6">Economy</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="low_noise">
+                    <select style="width:100%" id="baby-eco">
                       <option value="1" selected>ON</option>
                       <option value="0">OFF</option>
                     </select>
@@ -595,7 +599,7 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="col-xs-6">Swing</div>
                   <div class="col-xs-6">
-                    <select style="width:100%" id="swing">
+                    <select style="width:100%" id="baby-swing">
                       <option value="0" selected>OFF</option>
                       <option value="1">ON</option>
                     </select>
@@ -605,14 +609,14 @@
                 <div class="row" style="font-size:1.25em;"> 
                   <div class="row-fluid"> 
                     <div class="col-xs-4 col-xs-offset-4">
-                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Samsung("ON",$("#sala-ar #temp").val(),$("#sala-ar #fan").val(),$("#sala-ar #mode").val(),$("#sala-ar #low_noise").val(),$("#sala-ar #swing").val(),"living")'>OK</button>
+                      <button type="button" class="btn btn-primary btn-block" style="background-color: #337ab7; color: #fff" onclick='Daikin("ON",$("#baby-ar #baby-temp").val(),$("#baby-ar #baby-fan").val(),$("#baby-ar #baby-mode").val(),$("#baby-ar #baby-eco").val(),$("#baby-ar #baby-swing").val(),"baby")'>OK</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          <!-- Luz -->
-          <div id="baby-luz" class="tab-pane fade innertab">
+            <!-- Luz -->
+            <div id="baby-luz" class="tab-pane fade innertab">
               <div class="main">
                 <div class="row" style="text-align: center">
                   <input type="text" class="knob" id="baby_knob"   data-min=0 data-max=100 data-width=175 data-height=140 data-angleOffset=-125 data-angleArc=250 data-fgColor="#337ab7" value="50">
@@ -621,13 +625,13 @@
                 </div>
               </div>
           </div>
-          <!-- Tempo 
-          <div id="baby-tempo" class="tab-pane fade innertab">
+		    <!-- Tempo -->
+            <div id="baby-tempo" class="tab-pane fade innertab">
             <div style="width:100%;height:100%">
               <canvas id="baby-canvas"></canvas>
             </div>
           </div>
-		  -->
+		  </div>
 		</div>
 	  </div>
     </div>
@@ -635,15 +639,15 @@
 
   <!-- Static bottom navbar -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2019.5</p>
+    <p class="navbar-text" style="width:100%; text-align:center">Criado por Albert e Paula - v2019.6</p>
   </nav>
 
-  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-  <script type="text/javascript" src="../bower_components/hammerjs/hammer.min.js"></script>
-  <script type="text/javascript" src="../bower_components/chart.js/dist/Chart.bundle.min.js"></script>
-  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-  <script type="text/javascript" src="js/node_remote.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+  <script src="/bower_components/hammerjs/hammer.min.js"></script>
+  <script src="/bower_components/chart.js/dist/Chart.bundle.min.js"></script>
+  <script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
+  <script src="js/node_remote.js"></script>
 </body>
 </html>
