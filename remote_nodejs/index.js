@@ -5,8 +5,11 @@ var app = express();
 app.use(compression());
 var http = require('http').Server(app);
 var io = require('socket.io');
+
 var Dimmer = require('./dimmer.js');
 var dimmer = new Dimmer();
+
+var Weather = require('./weather.js');
 
 //Enable CORS
 app.use(function(req, res, next) {
@@ -79,6 +82,14 @@ var port=process.argv[2];
 http.listen(port, function() {
 	console.log('Server listening on port '+port);
 });
+
+if (port == 1818)
+	weather = new Weather("bedroom");
+else if (port == 1819)
+	weather = new Weather("living");
+else if (port == 1820)
+	weather = new Weather("baby");
+weather.Start();
 
 var listener=io.listen(http);
 var luz_jantar=0;
