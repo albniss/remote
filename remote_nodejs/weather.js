@@ -3,7 +3,7 @@ function Weather(location) {
 	this.timer = null;
 	
 	var fs = require('fs');
-	this.mongodbUri = fs.readFileSync('connectionString.txt', 'utf8');
+	this.mongodbUri = fs.readFileSync(__dirname + '/connectionString.txt', 'utf8');
 }
 
 Weather.prototype.Start = function () {
@@ -28,14 +28,11 @@ Weather.prototype.weatherTimer = function (uri, location) {
 		}
 	
 		var params=stdout.split(';');
-		var humidity = params[0];
-		var temperature = params[1];
+		var humidity = parseFloat(params[0]);
+		var temperature = parseFloat(params[1]);
 		
 		console.log("Current temperature: " + temperature + " humidity: " + humidity);
-		
-		var fs = require('fs');
-
-		
+				
 		const MongoClient = require('mongodb').MongoClient;
 		const client = new MongoClient(uri, { useNewUrlParser: true });
 
@@ -49,7 +46,7 @@ Weather.prototype.weatherTimer = function (uri, location) {
 
 			const collection = client.db("weather").collection("weather");
 		
-			collection.insertOne({location: location, temperature: 23.5, humidity:65.5}, function(err, res) {
+			collection.insertOne({location: location, temperature: temperature, humidity: humidity}, function(err, res) {
 				if (err) {
 					console.log("Error inserting into mongo");
 					client.close();

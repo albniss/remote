@@ -22,6 +22,46 @@ app.use(express.static(__dirname+'/app', {maxAge: '365d'}));
 app.use('/bower_components',  express.static(__dirname + '/bower_components', {maxAge: '365d'}));
 app.use('/node_modules',  express.static(__dirname + '/node_modules', {maxAge: '365d'}));
 
+app.get('/weatherdata', function (req, res) {
+	var fs = require('fs');
+	var uri = fs.readFileSync(__dirname + '/connectionString.txt', 'utf8');
+	
+	const MongoClient = require('mongodb').MongoClient;
+	const client = new MongoClient(uri, { useNewUrlParser: true });
+	
+	client.connect(err => {
+		console.log("Connected!");
+
+		if (err) {
+			console.log("Error connecting to mongo");
+			return;
+		}
+
+		const collection = client.db("weather").collection("weather");
+
+		collection.aggregate (
+		[{
+			'$group': {
+				'_id': {'hour': {'$hour': '$_id'},'day': {'$dayOfYear': '$_id'}, 'year': {'$year': '$_id'},'location': '$location'}, 
+				'avgTemp': {'$avg': '$temperature'}, 
+				'avgHumid': {'$avg': '$humidity'}
+		}}, {
+			'$sort': {'id_.year':1,'_id.day': 1,'_id.hour': 1}
+			}
+		]).toArray(function(err, qres) {
+			if (err) {
+				throw err;
+				console.log("Error getting data");
+				client.close();
+				return;
+			}
+		
+			res.json(qres);
+			client.close();
+		});  
+	});
+});
+
 app.get('/Weather', function (req, res) {
 	console.log('Weather');
 	
@@ -83,13 +123,18 @@ http.listen(port, function() {
 	console.log('Server listening on port '+port);
 });
 
-if (port == 1818)
+if (port == 1818) {
 	weather = new Weather("bedroom");
-else if (port == 1819)
+	weather.Start();
+}
+else if (port == 1819) {
 	weather = new Weather("living");
-else if (port == 1820)
+	weather.Start();
+}
+else if (port == 1820) {
 	weather = new Weather("baby");
-weather.Start();
+	weather.Start();
+}
 
 var listener=io.listen(http);
 var luz_jantar=0;
