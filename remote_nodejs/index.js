@@ -140,6 +140,7 @@ var listener=io.listen(http);
 var luz_jantar=0;
 var luz_sala=0;
 var luz_baby=0;
+var luz_casal=0;
 
 listener.sockets.on('connection',function(socket){
 	console.log('Got it!');
@@ -149,6 +150,7 @@ listener.sockets.on('connection',function(socket){
 	if (port==1819)
 	{
 		console.log('Got: Living');
+
 		data.value=luz_jantar;
 		socket.emit('luz_jantar',data);
 		data.value=luz_sala;
@@ -197,11 +199,19 @@ listener.sockets.on('connection',function(socket){
 		
 		data.value=luz_baby;
 		socket.emit('luz_baby',data);
+		data.value=luz_casal;
+		socket.emit('luz_casal',data);
 		
 		socket.on('luz_baby', function(data){
 			luz_baby=data.value;
 			dimmer.QueueWork("68d252b4",data.value);
 			socket.broadcast.emit('luz_baby',data);
+		});
+
+		socket.on('luz_casal', function(data){
+			luz_casal=data.value;
+			dimmer.QueueWork("68d25714",data.value);
+			socket.broadcast.emit('luz_casal',data);
 		});
 	}
 });

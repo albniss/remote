@@ -296,6 +296,17 @@ $("#baby_knob").knob({
 	}
 });
 
+///Lighting - Bedroom
+socket_baby.on('luz_casal', function(data){
+    $("#casal_knob").val(data.value).trigger('change');
+});
+$("#casal_knob").knob({
+	'change' : function (v) {
+		var i=parseInt(v+0.5);
+		socket_baby.emit('luz_casal',{'value':i});
+	}
+});
+
 var app = document.getElementById("app");
 
 Hammer(app).on("swiperight", function() {
