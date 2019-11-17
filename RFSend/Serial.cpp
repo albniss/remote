@@ -16,8 +16,10 @@ Serial::Serial(uint8_t serial[4], const Command cmd) :
 		cmd_diff.SetDiffCRC16(0x0000);	
 	else if (serial[0]==0x6e && serial[1]==0x4c && serial[2]==0x11 && serial[3]==0x84)
 		cmd_diff.SetDiffCRC16(0xc599);
-	else if (serial[0]==0x68 && serial[1]==0xd2 && serial[2]==0x52 && serial[3]==0xb4) //Bebê
+	else if (serial[0]==0x68 && serial[1]==0xd2 && serial[2]==0x52 && serial[3]==0xb4) //Baby
 		cmd_diff.SetDiffCRC16(0x9d90);
+	else if (serial[0]==0x68 && serial[1]==0xd2 && serial[2]==0x57 && serial[3]==0x14) //Bedroom
+		cmd_diff.SetDiffCRC16(0x3fa5);
 	else
 	{
 		std::cerr << "Serial invalido!\n";
